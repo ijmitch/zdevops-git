@@ -1,0 +1,14 @@
+---
+title: "IBM Z DevOps Acceleration Program"
+subtitle: "Enabling the enterprise DevOps transformation journey"
+#title-block-banner: static/img/back_hero.png
+toc: false
+sidebar: false
+format-links: false
+format: 
+  html:
+    page-layout: full
+  # pdf: default
+---
+
+[GSE UK - 2024](ukgse-2024-git-branching.qmd)

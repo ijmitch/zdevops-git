@@ -1,0 +1,45 @@
+project:
+  type: website
+
+website:
+  title: "IBM Z DevOps Acceleration Program"
+  repo-url: https://github.ibm.com/ianj-mitchell/quartotest
+  repo-actions: [edit, issue]
+  search:
+    location: navbar
+    type: textbox
+  page-footer: 
+    center: "Copyright &copy; 2025 IBM Corporation"
+    left: "Authored in Markdown </br>Built with [Quarto](https://quarto.org) and [RevealJS](https://revealjs.com/) </br>Served from Github Enterprise Pages"
+# repo-url: https://github.ibm.com/ianj-mitchell/quartotest
+# repo-actions: [issue]
+  page-navigation: true
+#  comments:
+#    giscus:
+#      repo: ijmitch/z-devops-acceleration-program
+format:
+  html:
+    theme:
+      light: [materia, custom.scss]
+      dark:  [cyborg, custom.scss]
+    css: styles.css
+    toc: true
+    toc-expand: true
+    grid:
+      sidebar-width: 300px
+      body-width: 1200px
+      margin-width: 300px
+      gutter-width: 1.5rem
+    mermaid:
+      theme: dark
+  pdf:
+    toc: true
+    mainfont: "IBM Plex Sans"
+    number-sections: true
+    colorlinks: true
+body-header: | 
+  This page brought to you by <https://example.com>
+margin-footer: |
+  ![](IBM_logo%C2%AE_pos_blue60_RGB.png)
+
+
