@@ -1,0 +1,212 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#agenda",
+    "href": "ukgse-2024-git-branching.html#agenda",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Agenda",
+    "text": "Agenda\n\nSetting the context\nAims and Assumptions\nFundamentals of the branching strategy\nSupported workflows\nImplementing pipelines"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#setting-the-context",
+    "href": "ukgse-2024-git-branching.html#setting-the-context",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Setting the context",
+    "text": "Setting the context\n\nDevops is foundational to modernization.\nModernization of Devops is no longer a voyage of exploration.\n\n(But plenty people will still try to convince you otherwise!)\n\nNo single tool or approach covers the entire journey to the destination.\n\nWe have a Guide… yes, it would be better if it were a map!"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#the-guide",
+    "href": "ukgse-2024-git-branching.html#the-guide",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "The Guide",
+    "text": "The Guide"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#todays-topic---branching-strategy-for-mainframe-teams",
+    "href": "ukgse-2024-git-branching.html#todays-topic---branching-strategy-for-mainframe-teams",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Today’s topic - Branching Strategy for Mainframe teams",
+    "text": "Today’s topic - Branching Strategy for Mainframe teams"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#dont-just-take-my-word-for-it",
+    "href": "ukgse-2024-git-branching.html#dont-just-take-my-word-for-it",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "… don’t just take my word for it",
+    "text": "… don’t just take my word for it\n\nMicrosoft Azure Devops Services"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#no-baggage",
+    "href": "ukgse-2024-git-branching.html#no-baggage",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "No baggage",
+    "text": "No baggage\nWell… travel light perhaps!\n\nAre we prescriptive or just opinionated?\n\nAim to be git-native!\n\nWe start with a recommendation\n\nConfidently\n\nWe question everything\n\nYAGNI - “you aren’t gonna need it”\n\nWe strive for simplicity\n\nFor each user’s experience"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#scaling",
+    "href": "ukgse-2024-git-branching.html#scaling",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Scaling",
+    "text": "Scaling\n\nThe workflow and branching scheme should both scale up and scale down.\n\nSmall teams with simple and infrequent changes will be able to easily understand, adopt, and have a good experience.\nLarge, busy teams with many concurrent activities will be able to plan, track, and execute with maximum agility using the same fundamental principles."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#planning",
+    "href": "ukgse-2024-git-branching.html#planning",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Planning",
+    "text": "Planning\n\nPlanning and design activities as well as code development aim to align to a regular release cadence.\nThe cadence of the next planned release is defined by the application team.\nPlanning assumptions should aim as much as possible to complete changes quickly, ideally within one release cycle.\n\nDevOps/Agile practices to break down larger changes into sets of smaller, incremental deliverables that can each be completed within an iteration."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#starting-simple",
+    "href": "ukgse-2024-git-branching.html#starting-simple",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Starting Simple",
+    "text": "Starting Simple\nEvery change starts in a branch.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n\n\n\n\n\n\n\nDevelopers work in the branch to make changes, perform user builds and unit tests.\nA branch holds multiple commits (changes to multiple files)."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#starting-simple-1",
+    "href": "ukgse-2024-git-branching.html#starting-simple-1",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Starting Simple",
+    "text": "Starting Simple\nEvery change starts in a branch.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n  commit\n\n\n\n\n\n\nThese changes on these branches are\n\nbuilt,\ntested,\nreviewed and\napproved before merging to main."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#preparing-to-merge-into-main",
+    "href": "ukgse-2024-git-branching.html#preparing-to-merge-into-main",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Preparing to Merge into main",
+    "text": "Preparing to Merge into main\nFeature Team/Developers will:\n\nBuild\n\nBuilds may be done to any commit on any branch\nFeature branch must build cleanly for a Pull Request\n\nTest\n\nTo prove quality of the changes in their feature branch\n\n\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n  commit\n  checkout main\n  merge feature/001"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#merging-into-main",
+    "href": "ukgse-2024-git-branching.html#merging-into-main",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Merging into main",
+    "text": "Merging into main\nCreate a Pull Request (PR) to signal to Team Leaders/Release Controllers to:\n\nReview\n\nCode and Test results\n\nApprove\n\nSafeguard the quality of main\n\n\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n  commit\n  checkout main\n  merge feature/001\n\n\n\n\n\n\nmain and other long-lived branches are protected (not everyone can push or merge to them)."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#before-you-ask-no-there-is-no-production-branch",
+    "href": "ukgse-2024-git-branching.html#before-you-ask-no-there-is-no-production-branch",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Before you ask… no, there is no Production branch",
+    "text": "Before you ask… no, there is no Production branch\nCI/CD decouples the building and deploying to test environments and production.\nWe have no branches named prod (or test or QA)\n\nThose are environments to which builds can be deployed\nSuch extra branches:\n\nare unnecessary\ncause ambiguity\nimpose merging and building overheads\n\nDeployment manager is maintaining what is deployed where and provides traceability from developer to production deployment"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#testing-a-release-candidate",
+    "href": "ukgse-2024-git-branching.html#testing-a-release-candidate",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Testing a release candidate",
+    "text": "Testing a release candidate\nAny point in the history of main can be declared a release candidate.\n\nBuild a release candidate package\nDeploy it\nTest it\n\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 2\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001 order: 3\n  commit\n  commit\n  checkout main\n  merge feature/001\n  commit tag: \"RC1\"\n  branch maintenance/release1.1\n  commit tag: \"Build, deploy, test\"\n\n\n\n\n\n\nTag the commit (point in main’s history) with a release name."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#deploying-to-production",
+    "href": "ukgse-2024-git-branching.html#deploying-to-production",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Deploying to production",
+    "text": "Deploying to production\nWhen all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 4\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001 order: 4\n  commit\n  commit\n  checkout main\n  merge feature/001\n  commit tag: \"RC1\"\n  branch maintenance/release2.2-RC1 order: 3\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  branch feature/002 order: 4\n  commit\n  checkout main\n  merge feature/002\n  commit tag: \"RC2\"\n  branch maintenance/release2.2.0-RC2 order: 2\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  commit tag: \"Rel2.2\"\n  branch maintenance/release2.2.0 order: 1\n  commit tag: \"Build, deploy, test, release\""
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#release-maintenance-branches",
+    "href": "ukgse-2024-git-branching.html#release-maintenance-branches",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Release maintenance branches",
+    "text": "Release maintenance branches\nA release maintenance branch will be used if hot-fixes must be developed and delivered.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 2\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit tag: \"rel2.1.0\"\n  branch maintenance/rel2.1.x order: 1\n  commit\n  checkout main\n  commit\n  branch feature/001 order: 2\n  commit\n  checkout main\n  commit\n  branch feature/002 order: 1\n  commit\n  checkout main\n  merge feature/001\n  checkout maintenance/rel2.1.x\n  branch hotfix/001 order: 0\n  commit\n  checkout maintenance/rel2.1.x\n  merge hotfix/001\n  commit tag: \"rel2.1.1\"\n  checkout main\n  merge feature/002"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#scaling-up",
+    "href": "ukgse-2024-git-branching.html#scaling-up",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Scaling up",
+    "text": "Scaling up\nConcurrent feature branches scale very well, but assume short cycle times.\n\nIdeally live within a release delivery cycle\nBut no big deal if they don’t\n\nEpic branches can collect multiple features\n\nBefore going to main\nWhen the delivery is planned beyond the next release\n\n(Epic branches are a form of integration branch.)"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#integration-branches",
+    "href": "ukgse-2024-git-branching.html#integration-branches",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Integration branches",
+    "text": "Integration branches\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 2\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  checkout main\n  commit\n  branch epic/proj001/001 order: 3\n  commit\n  branch feature/proj001/004 order: 4\n  commit\n  checkout epic/proj001/001\n  branch feature/proj001/005 order: 5\n  commit\n  checkout feature/proj001/004\n  commit\n  checkout main\n  commit\n  branch feature/001 order: 2\n  commit\n  checkout main\n  branch feature/002 order: 1\n  commit\n  checkout epic/proj001/001\n  merge feature/proj001/004\n  checkout main\n  merge feature/001\n  checkout epic/proj001/001\n  merge feature/proj001/005\n  checkout feature/002\n  commit\n  checkout main\n  merge feature/002\n  branch feature/003 order: 2\n  commit\n  checkout main\n  merge feature/003\n  commit tag: \"rel2.2.0\"\n  checkout epic/proj001/001\n  commit tag: \"continue-epic\""
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#convention-over-configuration",
+    "href": "ukgse-2024-git-branching.html#convention-over-configuration",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Convention over configuration",
+    "text": "Convention over configuration\nThe principles are more important that the tools and names.\nNaming conventions - making purpose obvious:\n\nmain : single source of truth. The only long-living branch.\nrelease/rel-2.0.1 : explicit versioning numbering to identify releases maintenance branch.\nepic/47-ai-fraud-detection : development initiative identified by epic id and description."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#convention-over-configuration-1",
+    "href": "ukgse-2024-git-branching.html#convention-over-configuration-1",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Convention over configuration",
+    "text": "Convention over configuration\nChanges are implemented on feature branches:\n\nfeature/&lt;jira-id|servicenow-id&gt;-new-mortgage-calculation : references to other planning tools for new features for the next planned release.\nfeature/47-ai-fraud-detection/refactor-mortgage-calculation: feature implemented for development initiative\nhotfix/rel-2.0.1/fix-mortgage-calc: fix implemented for release rel-2.0.1\n\nNames of branches and tags flow through to builds and deployments."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#the-types-of-workflows",
+    "href": "ukgse-2024-git-branching.html#the-types-of-workflows",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "The types of workflows",
+    "text": "The types of workflows\n\nWork and focus on the next planned release via the main branch. After planning the work items for the next release, the development team is adding changes to the main branch.\nResolution of a production problem in the currently-released version of the application by leveraging a release maintenance branch that is used for maintenance purposes,\nconcurrent development activities for significant development initiatives, which include multiple planned work items for a later delivery (including starting development of a future release) by creating an epic branch from a commit point in the history of main.\n\nThe following narratives complement the structure."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#features-for-the-next-planned-release",
+    "href": "ukgse-2024-git-branching.html#features-for-the-next-planned-release",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Features for the next planned release",
+    "text": "Features for the next planned release\nDeveloper activities:\n\n\nTake item from backlog\nCreate feature branch\nCode locally\nBuild with DBB User Build\nCommit into feature branch, build and test feature functionality\nCreate Pull Request for review and approval"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#features-for-the-next-planned-release-1",
+    "href": "ukgse-2024-git-branching.html#features-for-the-next-planned-release-1",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Features for the next planned release",
+    "text": "Features for the next planned release\nRelease control activities:\n\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#pipeline-architecture",
+    "href": "ukgse-2024-git-branching.html#pipeline-architecture",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Pipeline Architecture",
+    "text": "Pipeline Architecture"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#addressing-pain-points",
+    "href": "ukgse-2024-git-branching.html#addressing-pain-points",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Addressing pain points",
+    "text": "Addressing pain points\n\nDifferent pipelines orchestrators are used by customers\nExisting tasks (build, package, deployment) are too flexible and have too many config options\nPipeline implementation puts the workflow model “into code”"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#backend-services",
+    "href": "ukgse-2024-git-branching.html#backend-services",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Backend services",
+    "text": "Backend services"
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#pipeline-templates",
+    "href": "ukgse-2024-git-branching.html#pipeline-templates",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "Pipeline templates",
+    "text": "Pipeline templates\nPipeline templates for the various pipeline orchestrators that implement the recommended workflow."
+  },
+  {
+    "objectID": "ukgse-2024-git-branching.html#references",
+    "href": "ukgse-2024-git-branching.html#references",
+    "title": "The git-native branching model you need for mainframe development",
+    "section": "References",
+    "text": "References\n\n\n\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IBM Z DevOps Acceleration Program",
+    "section": "",
+    "text": "GSE UK - 2024"
+  }
+]
