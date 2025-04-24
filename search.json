@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "IBM Z DevOps Acceleration Program",
     "section": "",
-    "text": "GSE UK - 2024\nGSUK - 2025"
+    "text": "Guide Share UK - Git Branching\n\nGSE UK - 2024\nGSUK - 2025"
   },
   {
     "objectID": "ukgse-2024-git-branching.html#agenda",
@@ -210,13 +210,6 @@
     "text": "References\n\n\n\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
   },
   {
-    "objectID": "ukge-2025-branching-and-building.html#agenda",
-    "href": "ukge-2025-branching-and-building.html#agenda",
-    "title": "Git Branching: Moving to recommended model",
-    "section": "Agenda",
-    "text": "Agenda\n\nSetting the context\nAims and Assumptions\nFundamentals of the branching strategy\nSupported workflows\nImplementing pipelines"
-  },
-  {
     "objectID": "ukge-2025-branching-and-building.html#setting-the-context",
     "href": "ukge-2025-branching-and-building.html#setting-the-context",
     "title": "Git Branching: Moving to recommended model",
@@ -229,6 +222,13 @@
     "title": "Git Branching: Moving to recommended model",
     "section": "The Guide",
     "text": "The Guide"
+  },
+  {
+    "objectID": "ukge-2025-branching-and-building.html#section",
+    "href": "ukge-2025-branching-and-building.html#section",
+    "title": "Git Branching: Moving to recommended model",
+    "section": "",
+    "text": "Sneak-peek - new Guide landing page"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#todays-topic---branching-strategy-for-mainframe-teams",
