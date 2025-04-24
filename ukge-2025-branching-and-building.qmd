@@ -12,20 +12,20 @@ format:
     css: logo.css
     slide-number: true
     show-slide-number: all
+    title-slide-attributes:
+        data-background-image: gsuk-dark.png
   # pptx:
   #   title: ""
   # pdf: default
 ---
-<section data-background-image="gsuk-dark.png">
-<h2>Agenda</h2>
-<section>
+
+## Agenda
+
 - Setting the context
     - Aims and Assumptions
 - Fundamentals of the branching strategy
     - Supported workflows
 - The pipelines in action - demo time! 
-</section>
-</section>
 
 ## Setting the context
 
