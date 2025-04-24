@@ -1,5 +1,5 @@
 ---
-title: "Git Branching: Moving to recommended model"
+title: "Git Branching:<br> Moving to recommended model"
 subtitle: "Theory, practice and demo"
 author: ["Ian J Mitchell", "Dennis Behm", "(Mathieu Dalbin)"]
 format:
@@ -16,14 +16,16 @@ format:
   #   title: ""
   # pdf: default
 ---
-
-## Agenda
-
+<section data-background-image="gsuk-dark.png">
+<h2>Agenda</h2>
+<section>
 - Setting the context
-- Aims and Assumptions
+    - Aims and Assumptions
 - Fundamentals of the branching strategy
-- Supported workflows
-- Implementing pipelines 
+    - Supported workflows
+- The pipelines in action - demo time! 
+</section>
+</section>
 
 ## Setting the context
 
@@ -40,6 +42,12 @@ We have a [Guide](https://ibm.github.io/z-devops-acceleration-program/docs/ibm-z
 ## The Guide
 
 ![](static/img/guide-home-page.png)
+
+##
+
+#### Sneak-peek - new Guide landing page
+
+![](static/img/newguide.png)
 
 ## Today's topic - Branching Strategy for Mainframe teams
 
