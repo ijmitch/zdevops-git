@@ -210,6 +210,13 @@
     "text": "References\n\n\n\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
   },
   {
+    "objectID": "ukge-2025-branching-and-building.html#agenda",
+    "href": "ukge-2025-branching-and-building.html#agenda",
+    "title": "Git Branching: Moving to recommended model",
+    "section": "Agenda",
+    "text": "Agenda\n\nSetting the context\n\nAims and Assumptions\n\nFundamentals of the branching strategy\n\nSupported workflows\n\nThe pipelines in action - demo time!"
+  },
+  {
     "objectID": "ukge-2025-branching-and-building.html#setting-the-context",
     "href": "ukge-2025-branching-and-building.html#setting-the-context",
     "title": "Git Branching: Moving to recommended model",
