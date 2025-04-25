@@ -453,24 +453,24 @@ How do teams work with and benefit from the branch strategy?
 
 # Simplifying pipeline implementations
 
-## Pipeline Architecture
-
-![](static/img/pipeline-arch.png)
-
-
-## Addressing pain points {.smaller}
+## Plan your Pipeline Architecture
 
 * Different pipelines orchestrators are used by customers
-* Existing tasks (build, package, deployment) are too flexible and have too many config options
-* Pipeline implementation puts the workflow model "into code"
+* Principle implementations need to safeguard discussed principles and rules
 
-## Backend services {.smaller}
+- ![](static/img/pipeline-topology-remote-agent.svg)
 
-![](static/img/branching-model/backend-scripts.png)
+## Common needs across all implementations {.smaller}
 
-## Pipeline templates {.smaller}
+* Computation of a unique build high-level qualifier
+* Set build configuration depending on the lifecycle the user is in
+  * Compile with test options
+  * Compile with optimize options
+* Enforcing a common strategy to store packages in your enterprise binary repository
 
-Pipeline templates for the various pipeline orchestrators that implement the recommended workflow.
+## Pipeline templates and common backend services {.smaller}
+
+Pipeline templates for the various pipeline orchestrators + common set of services that implement the recommended workflow.
 
 ![](static/img/branching-model/azure-pipeline.png)
 
