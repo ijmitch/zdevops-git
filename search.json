@@ -378,32 +378,25 @@
     "text": "Features for the next planned release\nRelease control activities:\n\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
   },
   {
-    "objectID": "ukge-2025-branching-and-building.html#pipeline-architecture",
-    "href": "ukge-2025-branching-and-building.html#pipeline-architecture",
+    "objectID": "ukge-2025-branching-and-building.html#plan-your-pipeline-architecture",
+    "href": "ukge-2025-branching-and-building.html#plan-your-pipeline-architecture",
     "title": "Git Branching: Moving to recommended model",
-    "section": "Pipeline Architecture",
-    "text": "Pipeline Architecture"
+    "section": "Plan your Pipeline Architecture",
+    "text": "Plan your Pipeline Architecture\n\n\n\nDifferent pipelines orchestrators are used by customers\nPrinciple implementations need to safeguard discussed principles and rules"
   },
   {
-    "objectID": "ukge-2025-branching-and-building.html#addressing-pain-points",
-    "href": "ukge-2025-branching-and-building.html#addressing-pain-points",
+    "objectID": "ukge-2025-branching-and-building.html#common-needs-across-all-implementations",
+    "href": "ukge-2025-branching-and-building.html#common-needs-across-all-implementations",
     "title": "Git Branching: Moving to recommended model",
-    "section": "Addressing pain points",
-    "text": "Addressing pain points\n\nDifferent pipelines orchestrators are used by customers\nExisting tasks (build, package, deployment) are too flexible and have too many config options\nPipeline implementation puts the workflow model “into code”"
+    "section": "Common needs across all implementations",
+    "text": "Common needs across all implementations\n\nComputation of a unique build high-level qualifier\nSet build configuration depending on the lifecycle the user is in\n\nCompile with test options\nCompile with optimize options\n\nEnforcing a common strategy to store packages in your enterprise binary repository"
   },
   {
-    "objectID": "ukge-2025-branching-and-building.html#backend-services",
-    "href": "ukge-2025-branching-and-building.html#backend-services",
+    "objectID": "ukge-2025-branching-and-building.html#pipeline-templates-and-common-backend-services",
+    "href": "ukge-2025-branching-and-building.html#pipeline-templates-and-common-backend-services",
     "title": "Git Branching: Moving to recommended model",
-    "section": "Backend services",
-    "text": "Backend services"
-  },
-  {
-    "objectID": "ukge-2025-branching-and-building.html#pipeline-templates",
-    "href": "ukge-2025-branching-and-building.html#pipeline-templates",
-    "title": "Git Branching: Moving to recommended model",
-    "section": "Pipeline templates",
-    "text": "Pipeline templates\nPipeline templates for the various pipeline orchestrators that implement the recommended workflow."
+    "section": "Pipeline templates and common backend services",
+    "text": "Pipeline templates and common backend services\nPipeline templates for the various pipeline orchestrators + common set of services that implement the recommended workflow."
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#references",
