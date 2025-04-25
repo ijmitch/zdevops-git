@@ -249,7 +249,12 @@ Tag the commit (point in `main`'s history) with a release name.
 
 ## Deploying to production
 
-When all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production.
+When...
+
+- all the committed work items for the next planned release are ready to be shipped, and
+- all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers,
+
+the release package can be deployed to production...
 
 ## Deploying to production 
 ```{mermaid}
