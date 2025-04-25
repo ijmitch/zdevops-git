@@ -247,10 +247,11 @@ gitGraph
 
 Tag the commit (point in `main`'s history) with a release name.
 
-## Deploying to production {.smaller}
+## Deploying to production
 
 When all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production.
 
+## Deploying to production 
 ```{mermaid}
 ---
 config:
@@ -492,7 +493,7 @@ Pipeline templates for the various pipeline orchestrators + common set of servic
 
 ::: {layout-ncol=2}
 
-* zDevOps adoption enablement website - [Git branching for mainframe development](https://ibm.github.io/z-devops-acceleration-program/docs/branching-models)
+* zDevOps adoption enablement website - [Git branching for mainframe development](https://ibm.github.io/z-devops-acceleration-program/docs/branching/git-branching-model-for-mainframe-dev)
 
 * [A no-baggage approach to new Mainframe development practices](https://www.linkedin.com/posts/mathieu-dalbin-2b219732_a-no-baggage-approach-to-new-mainframe-development-activity-7133752966355791876-e6dS?utm_source=share&utm_medium=member_desktop)
 
@@ -502,11 +503,11 @@ Pipeline templates for the various pipeline orchestrators + common set of servic
   - [Using the branching model](https://mediacenter.ibm.com/tag?tagid=git%20branching%20model) (4 short videos)
   - [Day in the life of a mainframe developer using Git](https://mediacenter.ibm.com/playlist/details/1_0o0vq1h9/categoryId/189147203)
 
-![](collateral_image.png)
+![](static/img/collateral_image.png)
 
 :::
 
-Check out [this presentation](https://ijmitch.github.io/ukgse-2024-devops-git/p1.html) in [Github](https://github.com/ijmitch/ukgse-2024-devops-git)!
+Check out [this presentation](https://ijmitch.github.io/zdevops-git/ukge-2025-branching-and-building.html#/title-slide) in [Github](https://github.com/ijmitch/zdevops-git/)!
 
 # THANK YOU!
 <!-- # Appendix - Workflow walkthrough {.smaller}
