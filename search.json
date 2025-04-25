@@ -319,7 +319,7 @@
     "href": "ukge-2025-branching-and-building.html#deploying-to-production",
     "title": "Git Branching: Moving to recommended model",
     "section": "Deploying to production",
-    "text": "Deploying to production\nWhen all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production."
+    "text": "Deploying to production\nWhen…\n\nall the committed work items for the next planned release are ready to be shipped, and\nall quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers,\n\nthe release package can be deployed to production…"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#deploying-to-production-1",
