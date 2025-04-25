@@ -245,11 +245,25 @@
     "text": "Today’s topic - Branching Strategy for Mainframe teams"
   },
   {
-    "objectID": "ukge-2025-branching-and-building.html#dont-just-take-my-word-for-it",
-    "href": "ukge-2025-branching-and-building.html#dont-just-take-my-word-for-it",
+    "objectID": "ukge-2025-branching-and-building.html#dont-just-take-our-word-for-it",
+    "href": "ukge-2025-branching-and-building.html#dont-just-take-our-word-for-it",
     "title": "Git Branching: Moving to recommended model",
-    "section": "… don’t just take my word for it",
-    "text": "… don’t just take my word for it\n\nMicrosoft Azure Devops Services"
+    "section": "… don’t just take our word for it",
+    "text": "… don’t just take our word for it\n\nMicrosoft Azure Devops Services"
+  },
+  {
+    "objectID": "ukge-2025-branching-and-building.html#code-storage-and-developer-experience",
+    "href": "ukge-2025-branching-and-building.html#code-storage-and-developer-experience",
+    "title": "Git Branching: Moving to recommended model",
+    "section": "Code storage and Developer experience",
+    "text": "Code storage and Developer experience\n\n\n\nDeveloper Experience\nOld\nNew\n\n\n\n\nSource Code Storage\nPDS Members\nUNIX/Linux Filesystem\n\n\nEditing\nISPF\nIDEs: IDZ, VSCode\n\n\nVersioning\nPackage IDs\nGit branches/commits"
+  },
+  {
+    "objectID": "ukge-2025-branching-and-building.html#processes-and-automation",
+    "href": "ukge-2025-branching-and-building.html#processes-and-automation",
+    "title": "Git Branching: Moving to recommended model",
+    "section": "Processes and Automation:",
+    "text": "Processes and Automation:\n\n\n\nProcess\nOld\nNew\n\n\n\n\nBuilding\nJCL\nAutomated Pipeline scripts\n\n\nApproval\nProprietary\nPull Requests\n\n\nDeployment\nJCL\nIBM Wazi Deploy, IBM Urban Code Deploy"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#no-baggage",
