@@ -53,11 +53,28 @@ We have a [Guide](https://ibm.github.io/z-devops-acceleration-program/docs/ibm-z
 
 ![](static/img/guide-branching-page.png)
 
-## ... don't just take my word for it
+## ... don't just take our word for it
 
 ![](static/img/microsoft-azure-branching-guidance.png)
 
 [Microsoft Azure Devops Services](https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
+
+
+## Code storage and Developer experience
+
+|  Developer Experience  |    Old    |    New    |
+|:------------|:---------|:---------|
+| Source Code Storage | PDS Members | UNIX/Linux Filesystem |
+| Editing | ISPF | IDEs: IDZ, VSCode |
+| Versioning | Package IDs | Git **branches**/commits |
+
+## Processes and Automation:
+
+|  Process  |    Old    |    New    |
+|:------------|:---------|:---------|
+| Building | JCL | **Automated Pipeline** scripts |
+| Approval | Proprietary | Pull Requests |
+| Deployment | JCL | IBM Wazi Deploy,<br> IBM Urban Code Deploy |
 
 # Aims and Assumptions
 
