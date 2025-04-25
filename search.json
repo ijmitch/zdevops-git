@@ -319,7 +319,14 @@
     "href": "ukge-2025-branching-and-building.html#deploying-to-production",
     "title": "Git Branching: Moving to recommended model",
     "section": "Deploying to production",
-    "text": "Deploying to production\nWhen all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 4\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001 order: 4\n  commit\n  commit\n  checkout main\n  merge feature/001\n  commit tag: \"RC1\"\n  branch maintenance/release2.2-RC1 order: 3\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  branch feature/002 order: 4\n  commit\n  checkout main\n  merge feature/002\n  commit tag: \"RC2\"\n  branch maintenance/release2.2.0-RC2 order: 2\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  commit tag: \"Rel2.2\"\n  branch maintenance/release2.2.0 order: 1\n  commit tag: \"Build, deploy, test, release\""
+    "text": "Deploying to production\nWhen all the committed work items for the next planned release are ready to be shipped, and all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers, the release package and be deployed to production."
+  },
+  {
+    "objectID": "ukge-2025-branching-and-building.html#deploying-to-production-1",
+    "href": "ukge-2025-branching-and-building.html#deploying-to-production-1",
+    "title": "Git Branching: Moving to recommended model",
+    "section": "Deploying to production",
+    "text": "Deploying to production\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    mainBranchOrder: 4\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001 order: 4\n  commit\n  commit\n  checkout main\n  merge feature/001\n  commit tag: \"RC1\"\n  branch maintenance/release2.2-RC1 order: 3\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  branch feature/002 order: 4\n  commit\n  checkout main\n  merge feature/002\n  commit tag: \"RC2\"\n  branch maintenance/release2.2.0-RC2 order: 2\n  commit tag: \"Build, deploy, test\"\n  checkout main\n  commit tag: \"Rel2.2\"\n  branch maintenance/release2.2.0 order: 1\n  commit tag: \"Build, deploy, test, release\""
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#release-maintenance-branches",
