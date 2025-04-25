@@ -241,8 +241,8 @@
     "objectID": "ukge-2025-branching-and-building.html#todays-topic---branching-strategy-for-mainframe-teams",
     "href": "ukge-2025-branching-and-building.html#todays-topic---branching-strategy-for-mainframe-teams",
     "title": "Git Branching: Moving to recommended model",
-    "section": "Today’s topic - Branching Strategy for Mainframe teams",
-    "text": "Today’s topic - Branching Strategy for Mainframe teams"
+    "section": "Today’s topic - Branching Strategy for Mainframe Teams",
+    "text": "Today’s topic - Branching Strategy for Mainframe Teams"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#dont-just-take-our-word-for-it",
@@ -255,8 +255,8 @@
     "objectID": "ukge-2025-branching-and-building.html#code-storage-and-developer-experience",
     "href": "ukge-2025-branching-and-building.html#code-storage-and-developer-experience",
     "title": "Git Branching: Moving to recommended model",
-    "section": "Code storage and Developer experience",
-    "text": "Code storage and Developer experience\n\n\n\nDeveloper Experience\nOld\nNew\n\n\n\n\nSource Code Storage\nPDS Members\nUNIX/Linux Filesystem\n\n\nEditing\nISPF\nIDEs: IDZ, VSCode\n\n\nVersioning\nPackage IDs\nGit branches/commits"
+    "section": "Code storage and developer experience",
+    "text": "Code storage and developer experience\n\n\n\nDeveloper Experience\nOld\nNew\n\n\n\n\nSource Code Storage\nPDS Members\nUNIX/Linux Filesystem\n\n\nEditing\nISPF\nIDEs: IDZ, VSCode\n\n\nVersioning\nPackage IDs\nGit branches/commits"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#processes-and-automation",
