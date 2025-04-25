@@ -455,10 +455,22 @@ How do teams work with and benefit from the branch strategy?
 
 ## Plan your Pipeline Architecture
 
+:::: {.columns}
+
+::: {.column width="50%"}
+
 * Different pipelines orchestrators are used by customers
 * Principle implementations need to safeguard discussed principles and rules
+  
+::: 
 
-- ![](static/img/pipeline-topology-remote-agent.svg)
+::: {.column width="50%"}
+
+![](static/img/pipeline-topology-remote-agent.drawio.png)
+
+:::
+
+::::
 
 ## Common needs across all implementations {.smaller}
 
