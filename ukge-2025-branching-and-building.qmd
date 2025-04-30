@@ -49,7 +49,7 @@ We have a [Guide](https://ibm.github.io/z-devops-acceleration-program/docs/ibm-z
 
 ![](static/img/newguide.png)
 
-## Today's topic - Branching Strategy for Mainframe teams
+## Today's topic - Branching Strategy for Mainframe Teams
 
 ![](static/img/guide-branching-page.png)
 
@@ -59,8 +59,9 @@ We have a [Guide](https://ibm.github.io/z-devops-acceleration-program/docs/ibm-z
 
 [Microsoft Azure Devops Services](https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
 
+# Lifecycle and terminology comparison {.smaller}
 
-## Code storage and Developer experience
+## Code storage and developer experience
 
 |  Developer Experience  |    Old    |    New    |
 |:------------|:---------|:---------|
@@ -532,6 +533,14 @@ Pipeline templates for the various pipeline orchestrators + common set of servic
 Check out [this presentation](https://ijmitch.github.io/zdevops-git/ukge-2025-branching-and-building.html#/title-slide) in [Github](https://github.com/ijmitch/zdevops-git/)!
 
 # THANK YOU!
+
+Submit your feedback at:
+
+[https://conferences.gse.org.uk/2025V/feedback/VR10](https://conferences.gse.org.uk/2025V/feedback/VR10)
+
+*(Make sure you are signed into MyGSE)*
+
+
 <!-- # Appendix - Workflow walkthrough {.smaller}
 
 ## Fix a production defect  {.smaller}
