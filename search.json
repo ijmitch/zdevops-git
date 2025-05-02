@@ -165,14 +165,14 @@
     "href": "ukgse-2024-git-branching.html#features-for-the-next-planned-release",
     "title": "The git-native branching model you need for mainframe development",
     "section": "Features for the next planned release",
-    "text": "Features for the next planned release\nDeveloper activities:\n\n\nTake item from backlog\nCreate feature branch\nCode locally\nBuild with DBB User Build\nCommit into feature branch, build and test feature functionality\nCreate Pull Request for review and approval"
+    "text": "Features for the next planned release\nDeveloper activities:\n\nTake item from backlog\nCreate feature branch\nCode locally\nBuild with DBB User Build\nCommit into feature branch, build and test feature functionality\nCreate Pull Request for review and approval"
   },
   {
     "objectID": "ukgse-2024-git-branching.html#features-for-the-next-planned-release-1",
     "href": "ukgse-2024-git-branching.html#features-for-the-next-planned-release-1",
     "title": "The git-native branching model you need for mainframe development",
     "section": "Features for the next planned release",
-    "text": "Features for the next planned release\nRelease control activities:\n\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
+    "text": "Features for the next planned release\nRelease control activities:\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
   },
   {
     "objectID": "ukgse-2024-git-branching.html#pipeline-architecture",
@@ -207,7 +207,7 @@
     "href": "ukgse-2024-git-branching.html#references",
     "title": "The git-native branching model you need for mainframe development",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
+    "text": "References\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#agenda",
@@ -389,14 +389,14 @@
     "href": "ukge-2025-branching-and-building.html#features-for-the-next-planned-release",
     "title": "Git Branching: Moving to recommended model",
     "section": "Features for the next planned release",
-    "text": "Features for the next planned release\nDeveloper activities:\n\n\nTake item from backlog\nCreate feature branch\nCode locally\nBuild with DBB User Build\nCommit into feature branch, build and test feature functionality\nCreate Pull Request for review and approval"
+    "text": "Features for the next planned release\nDeveloper activities:\n\nTake item from backlog\nCreate feature branch\nCode locally\nBuild with DBB User Build\nCommit into feature branch, build and test feature functionality\nCreate Pull Request for review and approval"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#features-for-the-next-planned-release-1",
     "href": "ukge-2025-branching-and-building.html#features-for-the-next-planned-release-1",
     "title": "Git Branching: Moving to recommended model",
     "section": "Features for the next planned release",
-    "text": "Features for the next planned release\nRelease control activities:\n\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
+    "text": "Features for the next planned release\nRelease control activities:\n\nMerge approved branches to main and build\nWhen planned features have merged, build and tag Release Candidate package\nDeploy Release Candidate to test environments\n(Release candidate can be superceded)\nFinalise Release package in Artifactory (or equivalent)\nTag commit from step 8 as the production release and deploy"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#plan-your-pipeline-architecture",
@@ -424,6 +424,6 @@
     "href": "ukge-2025-branching-and-building.html#references",
     "title": "Git Branching: Moving to recommended model",
     "section": "References",
-    "text": "References\n\n\n\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
+    "text": "References\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
   }
 ]
