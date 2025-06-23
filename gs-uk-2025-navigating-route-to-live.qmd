@@ -7,6 +7,8 @@ author:
 
 # Session Description
 
+Submit [here](https://sessionize.com/gs-uk-november-2025/).
+
 In this session Ian and Dennis will recap the recommended branching scheme and CI/CD pipeline support for IBM Z Devops 
 and explore how that scheme compares with legacy approaches to promoting, testing and deploying
 code on a route from developer to production.
