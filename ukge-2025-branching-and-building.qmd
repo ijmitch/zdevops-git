@@ -1,0 +1,679 @@
+---
+title: "Git Branching:<br> Moving to recommended model"
+subtitle: "Theory, practice and demo"
+author: ["Ian J Mitchell", "Dennis Behm", "(Mathieu Dalbin)"]
+format:
+  revealjs: 
+    theme: [dark, custom.scss]
+    embed-resources: true   
+    transition: fade
+    footer: "Copyright &copy; 2025 IBM Corporation"
+    logo: "IBM_logo®_pos_blue60_RGB.png"
+    css: logo.css
+    slide-number: true
+    show-slide-number: all
+    title-slide-attributes:
+        data-background-image: gsuk-dark.png
+  # pptx:
+  #   title: ""
+  # pdf: default
+---
+
+## Agenda
+
+- Setting the context
+    - Aims and Assumptions
+- Fundamentals of the branching strategy
+    - Supported workflows
+- The pipelines in action - demo time! 
+
+## Setting the context
+
+- Devops is foundational to modernization.
+
+- Modernization of Devops is no longer a voyage of exploration.
+
+  - (But plenty people will still try to convince you otherwise!)
+
+- No single tool or approach covers the entire journey to the destination.
+
+We have a [Guide](https://ibm.github.io/z-devops-acceleration-program/docs/ibm-z-devops-solution)... yes, it would be better if it were a map!
+
+## The Guide
+
+![](static/img/guide-home-page.png)
+
+##
+
+#### Sneak-peek - new Guide landing page
+
+![](static/img/newguide.png)
+
+## Today's topic - Branching Strategy for Mainframe Teams
+
+![](static/img/guide-branching-page.png)
+
+## ... don't just take our word for it
+
+![](static/img/microsoft-azure-branching-guidance.png)
+
+[Microsoft Azure Devops Services](https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops)
+
+# Lifecycle and terminology comparison {.smaller}
+
+## Code storage and developer experience
+
+|  Developer Experience  |    Old    |    New    |
+|:------------|:---------|:---------|
+| Source Code Storage | PDS Members | UNIX/Linux Filesystem |
+| Editing | ISPF | IDEs: IDZ, VSCode |
+| Versioning | Package IDs | Git **branches**/commits |
+
+## Processes and Automation:
+
+|  Process  |    Old    |    New    |
+|:------------|:---------|:---------|
+| Building | JCL | **Automated Pipeline** scripts |
+| Approval | Proprietary | Pull Requests |
+| Deployment | JCL | IBM Wazi Deploy,<br> IBM Urban Code Deploy |
+
+# Aims and Assumptions
+
+Some aims and assumptions that guide our recommendations...
+
+## No baggage
+
+Well... *[travel light](https://community.ibm.com/community/user/ibmz-and-linuxone/blogs/mathieu-dalbin/2023/11/22/a-no-baggage-approach-to-new-mainframe-development?communityKey=b68f8006-7e86-4043-843f-df16dc7065f9)* perhaps!
+
+- Are we *prescriptive* or just *opinionated*?
+  - Aim to be *git-native*!
+- We start with a recommendation
+  - Confidently
+- We question everything 
+  - **YAGNI** - "you aren't gonna need it"
+- We strive for simplicity
+  - For each user's experience
+
+## Scaling
+
+- The workflow and branching scheme should both scale up and scale down.
+  - Small teams with simple and infrequent changes will be able to easily understand, adopt, and have a good experience.
+  - Large, busy teams with many concurrent activities will be able to plan, track, and execute with maximum agility using the same fundamental principles.
+
+## Planning {.smaller}
+
+- Planning and design activities as well as code development aim to align to a regular release cadence.
+
+- The cadence of the next planned release is defined by the application team.
+
+- Planning assumptions should aim as much as possible to complete changes quickly, ideally within one release cycle.
+
+  - DevOps/Agile practices to break down larger changes into sets of **smaller, incremental** deliverables that can each be completed within an iteration. 
+<!--
+  - This reduces the number of "in-flight" changes, and allows the team to deliver **value** more quickly while still building towards a larger development goal.
+
+  - We know it is sometimes unavoidable for work to take longer than one release cycle and we accommodate that as a variant of the base workflow.
+  --> 
+
+# The Branching Strategy
+
+## Starting Simple {.smaller}
+
+Every change starts in a branch.
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001
+  commit
+```
+
+- Developers work in the branch to make changes, perform user builds and unit tests.
+
+- A branch holds multiple commits (changes to multiple files).
+
+## Starting Simple {.smaller}
+
+Every change starts in a branch.
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001
+  commit
+  commit
+```
+
+These changes on these branches are 
+
+- built,
+- tested, 
+- reviewed and 
+- approved before merging to `main`.
+
+## Preparing to Merge into `main` {.smaller}
+
+Feature Team/Developers will:
+
+- Build
+  - Builds may be done to any commit on any branch
+  - Feature branch **must** build cleanly for a Pull Request
+- Test
+  - To prove quality of the changes in their feature branch
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001
+  commit
+  commit
+  checkout main
+  merge feature/001
+```
+
+## Merging into `main` {.smaller}
+
+Create a Pull Request (PR) to signal to Team Leaders/Release Controllers to:
+
+- Review
+  - Code and Test results
+- Approve
+  - Safeguard the quality of `main`
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001
+  commit
+  commit
+  checkout main
+  merge feature/001
+```
+
+`main` and other long-lived branches are *protected* (not everyone can `push` or `merge` to them).
+
+## Before you ask... no, there is no *Production* branch {.smaller}
+
+CI/CD decouples the building and deploying to test environments and production.
+
+We have no branches named `prod` (or `test` or `QA`)
+
+- Those are *environments* to which builds can be deployed
+- Such extra branches:
+  - are unnecessary
+  - cause ambiguity
+  - impose merging and building overheads
+
+- Deployment manager is maintaining what is deployed where and provides traceability from developer to production deployment
+
+## Testing a release candidate {.smaller}
+
+Any point in the history of `main` can be declared a *release candidate*.
+
+- Build a *release candidate* package
+- Deploy it
+- Test it
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    mainBranchOrder: 2
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001 order: 3
+  commit
+  commit
+  checkout main
+  merge feature/001
+  commit tag: "RC1"
+  branch maintenance/release1.1
+  commit tag: "Build, deploy, test"
+```
+
+Tag the commit (point in `main`'s history) with a release name.
+
+## Deploying to production
+
+When...
+
+- all the committed work items for the next planned release are ready to be shipped, and
+- all quality gates have passed successfully and the required approvals have been issued by the appropriate reviewers,
+
+the release package can be deployed to production...
+
+## Deploying to production 
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    mainBranchOrder: 4
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit
+  branch feature/001 order: 4
+  commit
+  commit
+  checkout main
+  merge feature/001
+  commit tag: "RC1"
+  branch maintenance/release2.2-RC1 order: 3
+  commit tag: "Build, deploy, test"
+  checkout main
+  branch feature/002 order: 4
+  commit
+  checkout main
+  merge feature/002
+  commit tag: "RC2"
+  branch maintenance/release2.2.0-RC2 order: 2
+  commit tag: "Build, deploy, test"
+  checkout main
+  commit tag: "Rel2.2"
+  branch maintenance/release2.2.0 order: 1
+  commit tag: "Build, deploy, test, release"
+```
+
+## Release maintenance branches {.smaller}
+
+A *release maintenance* branch will be used if *hot-fixes* must be developed and delivered.
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    mainBranchOrder: 2
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  commit tag: "rel2.1.0"
+  branch maintenance/rel2.1.x order: 1
+  commit
+  checkout main
+  commit
+  branch feature/001 order: 2
+  commit
+  checkout main
+  commit
+  branch feature/002 order: 1
+  commit
+  checkout main
+  merge feature/001
+  checkout maintenance/rel2.1.x
+  branch hotfix/001 order: 0
+  commit
+  checkout maintenance/rel2.1.x
+  merge hotfix/001
+  commit tag: "rel2.1.1"
+  checkout main
+  merge feature/002
+
+
+```
+
+## Scaling up {.smaller}
+
+Concurrent *feature* branches scale very well, but assume short cycle times.
+
+- Ideally live within a release delivery cycle
+- But no big deal if they don't
+
+*Epic* branches can collect multiple features
+
+- Before going to `main`
+- When the delivery is planned beyond the next release
+
+(*Epic* branches are a form of *integration* branch.)
+
+## Integration branches {.smaller}
+
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    mainBranchOrder: 2
+    showCommitLabel: false
+---
+gitGraph
+  commit
+  checkout main
+  commit
+  branch epic/proj001/001 order: 3
+  commit
+  branch feature/proj001/004 order: 4
+  commit
+  checkout epic/proj001/001
+  branch feature/proj001/005 order: 5
+  commit
+  checkout feature/proj001/004
+  commit
+  checkout main
+  commit
+  branch feature/001 order: 2
+  commit
+  checkout main
+  branch feature/002 order: 1
+  commit
+  checkout epic/proj001/001
+  merge feature/proj001/004
+  checkout main
+  merge feature/001
+  checkout epic/proj001/001
+  merge feature/proj001/005
+  checkout feature/002
+  commit
+  checkout main
+  merge feature/002
+  branch feature/003 order: 2
+  commit
+  checkout main
+  merge feature/003
+  commit tag: "rel2.2.0"
+  checkout epic/proj001/001
+  commit tag: "continue-epic"
+```
+
+## Convention over configuration {.smaller}
+
+The principles are more important that the tools and names.
+
+Naming conventions - making purpose obvious:
+
+- `main` : single source of truth. The only long-living branch.
+- `release/rel-2.0.1` : explicit versioning numbering to identify releases maintenance branch.
+- `epic/47-ai-fraud-detection` : development initiative identified by epic id and description.
+
+## Convention over configuration {.smaller}
+
+Changes are implemented on feature branches:
+
+- `feature/<jira-id|servicenow-id>-new-mortgage-calculation` : references to other planning tools for new features for the next planned release.
+- `feature/47-ai-fraud-detection/refactor-mortgage-calculation`: feature implemented for development initiative 
+- `hotfix/rel-2.0.1/fix-mortgage-calc`: fix implemented for release rel-2.0.1 
+
+Names of branches and tags flow through to builds and deployments.
+
+# Workflows supported by the strategy 
+
+How do teams work with and benefit from the branch strategy?
+
+## The types of workflows {.smaller}
+
+1) Work and focus on the **next planned release** via the `main` branch. After planning the work items for the next release, the development team is adding changes to the main branch.
+
+
+2) **Resolution of a production problem** in the currently-released version of the application by leveraging a release maintenance branch that is used for maintenance purposes,
+   
+3) **concurrent development activities for significant development initiatives**, which include multiple planned work items for a later delivery (including starting development of a future release) by creating an epic branch from a commit point in the history of main.
+
+*The following narratives complement the structure.*
+
+## Features for the next planned release
+
+**Developer activities:**
+
+::: {.incremental}
+
+1. Take item from backlog
+2. Create feature branch
+3. Code locally
+4. Build with DBB User Build
+5. Commit into feature branch, build and test feature functionality
+6. Create Pull Request for review and approval
+
+:::
+
+## Features for the next planned release
+
+**Release control activities:**
+
+::: {.incremental}
+
+7. Merge approved branches to `main` and build
+8. When planned features have merged, build and tag Release Candidate package
+9.  Deploy Release Candidate to test environments
+10. (*Release candidate can be superceded*)
+11. Finalise Release package in Artifactory (or equivalent)
+12. Tag commit from step 8 as the production release and deploy
+
+:::
+
+# Simplifying pipeline implementations
+
+## Plan your Pipeline Architecture
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+* Different pipelines orchestrators are used by customers
+* Principle implementations need to safeguard discussed principles and rules
+  
+::: 
+
+::: {.column width="50%"}
+
+![](static/img/pipeline-topology-remote-agent.drawio.png)
+
+:::
+
+::::
+
+## Common needs across all implementations {.smaller}
+
+* Computation of a unique build high-level qualifier
+* Set build configuration depending on the lifecycle the user is in
+  * Compile with test options
+  * Compile with optimize options
+* Enforcing a common strategy to store packages in your enterprise binary repository
+
+## Pipeline templates and common backend services {.smaller}
+
+Pipeline templates for the various pipeline orchestrators + common set of services that implement the recommended workflow.
+
+![](static/img/branching-model/azure-pipeline.png)
+
+# Collateral
+
+## References {.smaller}
+
+::: {layout-ncol=2}
+
+* zDevOps adoption enablement website - [Git branching for mainframe development](https://ibm.github.io/z-devops-acceleration-program/docs/branching/git-branching-model-for-mainframe-dev)
+
+* [A no-baggage approach to new Mainframe development practices](https://www.linkedin.com/posts/mathieu-dalbin-2b219732_a-no-baggage-approach-to-new-mainframe-development-activity-7133752966355791876-e6dS?utm_source=share&utm_medium=member_desktop)
+
+* Pipeline templates - [IBM DBB Community Repository](https://github.com/IBM/dbb/tree/main/Templates)
+
+* Videos
+  - [Using the branching model](https://mediacenter.ibm.com/tag?tagid=git%20branching%20model) (4 short videos)
+  - [Day in the life of a mainframe developer using Git](https://mediacenter.ibm.com/playlist/details/1_0o0vq1h9/categoryId/189147203)
+
+![](static/img/collateral_image.png)
+
+:::
+
+Check out [this presentation](https://ijmitch.github.io/zdevops-git/ukge-2025-branching-and-building.html#/title-slide) in [Github](https://github.com/ijmitch/zdevops-git/)!
+
+# THANK YOU!
+
+Submit your feedback at:
+
+[https://conferences.gse.org.uk/2025V/feedback/AG](https://conferences.gse.org.uk/2025V/feedback/AG)
+
+*(Make sure you are signed into MyGSE)*
+
+
+<!-- # Appendix - Workflow walkthrough {.smaller}
+
+## Fix a production defect  {.smaller}
+
+* The process of urgent fixes for modules in the production environment follows the fix-forward approach, rather than rolling back the affected modules and reverting to the previous deployed state.
+
+* The development team starts this process by creating a **release maintenance** branch of the git tag that represents the most recent release, that was deployed to production. 
+
+![](static/img/branching-model/releaseMaintenanceWorkflow_overview.png)
+
+## Fix a production defect  {.smaller}
+
+**Developer activities resolving a production defect:**
+
+::: {.incremental}
+
+1. Creates the `release/rel-2.1.0` branch based on the existing Git tag
+2. Creates a feature branch `hotfix/rel-2.1.0/urgent-fix` from the release maintenance branch.
+3. Implement the fix locally
+4. Build with DBB User Build
+5. Commit into hotfix branch, push, build and test feature functionality 
+6. Create Pull Request for review and approval
+
+:::
+
+## Fix a production defect {.smaller}
+
+**Release control activities resolving a production defect:**
+
+::: {.incremental}
+
+7. Merge hotfix branch to release maintenance branch and build
+8. Use release pipeline to create fix package
+9. Deploy fix package to controlled test environments and test it
+10. Deploy fix package to production
+11. Tag commit from step 8 indicating the new version
+12. Merge release maintenance branch into `main`.
+
+:::
+
+<!-- ## Building the fix package {.smaller}
+* Changes contributed to the release maintenance branch are build and packaged.
+* The fix package is tested in the appropriate test environment(s)
+* Finally deployed to production
+
+![](static/img/branching-model/releaseMaintenanceWorkflow_fixPackageBuild.png)
+
+* The commit is tagged as the new version `2.1.1`.
+
+## Using the Epic branch workflow {.smaller}
+
+Dealing with significant development initiatives such as:
+
+* Updates in regulatory frameworks
+* Start the development phase of *subsequent* releases
+
+&rarr; A process to work independently from the base workflow.
+
+## Using the Epic branch workflow {.smaller}
+
+**Developer activities for implementing significant development initiatives:**
+
+::: {.incremental}
+
+1. Creates the `epic/ai-fraud-detection` branch based on the existing Git tag
+2. Creates a feature branch `feature/ai-fraud-detection/introduce-ai-model-to-mortgage-calculation` from the epic branch.
+3. Code locally
+4. Build with DBB User Build
+5. Commit into feature branch, push, build and test feature functionality 
+6. Create Pull Request for review and approval to merge into the integration branch
+
+:::
+
+## Using the Epic branch workflow {.smaller}
+
+**Release activities for implementing significant development initiatives:**
+
+::: {.incremental}
+
+7. Merge feature branch to epic branch and build
+8. Use release pipeline to create preliminary package
+9. Deploy package to project test environment
+10. Frequently synchronize with `main` into the epic branch to avoid making the merge of the `epic` branch into `main` difficult.
+11. Decision **when** the changes on the epic branch should be released
+12. Merge epic branch into `main` and deliver via the base workflow.
+
+:::
+
+## Epic branch workflow {.smaller}
+
+![](static/img/branching-model/image12.png)
+
+## Guidelines and policies in the epic branch workflow
+
+* Frequently synchronize with `main` into the epic branch to avoid making the merge of the `epic` branch into `main` difficult.
+
+* Preliminary packages must not be deployed to a production runtime.
+
+# Appendix - Pipeline implementations {.smaller}
+
+## Pipeline implementation conventions & principles  {.smaller}
+
+::: {layout-ncol=2}
+
+* Git tags are used to calculate the changes for the next planned release, release maintenance packages and larger development activities.
+
+* Packages are cumulative which is making it easier to get a test environment to the desired state (avoiding coordination of several incremental packages)
+note: and make it easy to understand which state is deployed in a given test environment.
+  * A new release candidate package supersedes previous release candidates. 
+
+![](static/img/branching-model/basicBuildPipeline-computeChanges-default-workflow.png)
+
+:::
+
+## Basic Build pipeline characteristics{.smaller}
+
+* (Typically) runs on each commit added to the history of a branch
+* Can produce a preliminary package that is stored in a binary artifact repository
+  * Can be deployed to test environments, but not production
+* May include an automated step to deploy it into the DEV-TEST environment
+
+![](static/img/branching-model/defaultWorkflow_buildPipelineAfterMerge.png)
+
+## Release pipeline {.smaller}
+
+
+::: {layout-ncol=2}
+
+* Produces binaries optimized for performance
+  * that can be deployed to test and production environments.
+* (Typically) is manually requested by the development team when a level of stability is reached
+* Produces a release candidate package that can be deployed to higher test environments.
+
+![](static/img/branching-model/defaultWorkflow_releasePipeline_RC2.png){width=80%}
+
+::: -->
