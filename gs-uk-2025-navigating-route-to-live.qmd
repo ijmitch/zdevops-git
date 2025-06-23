@@ -1,1 +1,26 @@
+---
+title: "Z Devops:<br> Navigating your route to live with Git"
+# subtitle: "Theory, practice and demo"
+author: ["Ian J Mitchell", "Dennis Behm"]
+format:
+  revealjs: 
+    theme: [dark, custom.scss]
+    embed-resources: true   
+    transition: fade
+    footer: "Copyright &copy; 2025 IBM Corporation"
+    logo: "IBM_logo®_pos_blue60_RGB.png"
+    css: logo.css
+    slide-number: true
+    show-slide-number: all
+    title-slide-attributes:
+        data-background-image: gsuk-dark.png
+---
 
+## Agenda
+
+- Setting the context
+    - Aims and Assumptions
+- Recap the recommended branching strategy
+    - Supported workflows
+- Branch usage in the route to live
+    - Industry-standard vs legacy approaches
