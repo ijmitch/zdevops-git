@@ -710,7 +710,7 @@ gitGraph
 ```
 When both pass the tests for a DEV branch, a PR proposes a merge of them both to `main` where they can be reviewed and approved to be a release candidate.
 
-## Testing and fixing problems prior to production deployment
+## Testing and fixing problems ...{.smaller}
 
 ```{mermaid}
 ---
@@ -899,6 +899,7 @@ To continue development for a *release 2.2.0*, a new *DEV-x.y.z* branch is creat
 
 The commit(s) for *hotfix-001* are merged back to `main` and thus will be present when any further commits are merged in either `main` or the *DEV-2.2.0* branches.
 
+## 
 ```{mermaid}
 ---
 config:
@@ -965,12 +966,11 @@ gitGraph
 
 Build, testing and production deloyment for Release 2.2.0 then proceeds as normal.
 
-## Advantages of the recommended model
+# Advantages of the recommended model
 
-## *DEV* is a series of Epics {.smaller}
+## `main` is the integration point {.smaller}
 
-The *DEV* branch integrates multiple features before they are merged
-into *TEST*
+The *DEV* branch integrates multiple features before they are merged into *TEST*
  - which is the same role that epic branches have with
 respect to `main` in the recommended model.
 
@@ -994,7 +994,7 @@ It makes NO DIFFERENCE to the history or the validity of the branch developers
 work off of if there's a single long-lived branch synchronised to the 
 HEAD of *TEST* (aka `main`) or if such a branch is created for each cycle.
 
-## *TEST* is `main` {.smaller}
+## `main` is *TEST* {.smaller}
 
 *TEST* is the integration branch for all new features - essentially identical to the
 branch we call `main` in the recommended model.
@@ -1029,7 +1029,7 @@ of testing has the conventional common name of `main`.
     - The *TEST* branch will have tested commits for new features ready to be merged to the *PROD* branch
 and hence built for deployment to the *PROD* systems.
 
-## *PROD* is a series of Releases {.smaller}
+## Release branches are identical to *PROD* {.smaller}
 
 The legacy interpretation demands that commits for new features are merged from *TEST* to *PROD*, but also that
 it is allowed for *hot-fixes* to be merged with *PROD* in emergencies.
@@ -1041,22 +1041,6 @@ it is allowed for *hot-fixes* to be merged with *PROD* in emergencies.
 - This makes it functionally the same as making a new branch off the HEAD of *TEST* (or any given
 point in the history of *TEST*) - this is identical to the creation of a release maintenance branch 
 in the recommended model.
-
-## What else is different?
-
-Having established a functional and general procedural equivalence with a scheme
-assuming *DEV, TEST and PROD* are just more familar names, what else can stop
-the recommended model being adopted?
-
-Any build from any commit on any branch might also 
-use some [environment]{style="color:green;"}-specific options injected by the pipeline - what might these options be?
-
-- Compiler options - like compiling for debug vs performance
-- where to get source and/or linkable binaries from which don't belong to the repo
-- anything else?
-
-These variations depend on the actions of the pipeline and not just the contents
-of the source files in the repo.
 
 # Summary
 
@@ -1075,6 +1059,6 @@ Words...
 - *TEST* is equivalent to `main`
     - so let's use the stardard term
 - *PROD* is equivalent to a series of Releases
-    - all with the history and traceabilty we all need
+    - all with the history and traceability we all need
 
 # THANK YOU!
