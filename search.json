@@ -7,11 +7,18 @@
     "text": "About this site"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "IBM Z DevOps Acceleration Program",
+    "objectID": "ukge-2025-navigating-route-to-live-proposal.html",
+    "href": "ukge-2025-navigating-route-to-live-proposal.html",
+    "title": "Z Devops: Navigating your route to live with Git",
     "section": "",
-    "text": "Guide Share UK - Git Branching\n\nGSE UK - 2024\nGSUK - 2025"
+    "text": "Session Description\nSubmit here.\nIn this session Ian and Dennis will recap the recommended branching scheme and CI/CD pipeline support for IBM Z Devops and explore how that scheme compares with legacy approaches to promoting, testing and deploying code on a route from developer to production.\nThe focus is on aligning to recognised industry practices while not losing the essential safeguards maintaining your production system’s reputation for stability and security."
+  },
+  {
+    "objectID": "gs-uk-2025-navigating-route-to-live.html#agenda",
+    "href": "gs-uk-2025-navigating-route-to-live.html#agenda",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Agenda",
+    "text": "Agenda\n\nSetting the context\n\nAims and Assumptions\n\nRecap the recommended branching strategy\n\nSupported workflows\n\nBranch usage in the route to live\n\nIndustry-standard vs legacy approaches"
   },
   {
     "objectID": "ukgse-2024-git-branching.html#agenda",
@@ -208,6 +215,279 @@
     "title": "The git-native branching model you need for mainframe development",
     "section": "References",
     "text": "References\n\n\n\n\nzDevOps adoption enablement website - Git branching for mainframe development\nA no-baggage approach to new Mainframe development practices\nPipeline templates - IBM DBB Community Repository\nVideos\n\nUsing the branching model (4 short videos)\nDay in the life of a mainframe developer using Git\n\n\n\n\n\n\n\n\nCheck out this presentation in Github!"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "IBM Z DevOps Acceleration Program",
+    "section": "",
+    "text": "Guide Share UK - Git Branching\n\nGSE UK - 2024\nGSUK - 2025(virtual)\nGSUK -2025(inperson)"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#agenda",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#agenda",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Agenda",
+    "text": "Agenda\n\nRecap the basics of the recommended branching scheme\n\nFocuses on the developer workflow\n\n“Environment branches” - yes, no or meh!\n\nWhat’s the point in hanging on to old practices?\nIt’s just words… but words matter!\n\nThe pipelines in action - demo time!"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#setting-the-context",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#setting-the-context",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Setting the context",
+    "text": "Setting the context\n\nDevops is foundational to modernization.\nModernization of Devops is no longer a voyage of exploration.\n\n(But plenty people will still try to convince you otherwise!)\n\nNo single tool or approach covers the entire journey to the destination.\n\nWe have a Guide… yes, it would be better if it were a map!"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#the-guide",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#the-guide",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "The Guide",
+    "text": "The Guide"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#todays-topic---branching-strategy-for-mainframe-teams",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#todays-topic---branching-strategy-for-mainframe-teams",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Today’s topic - Branching Strategy for Mainframe Teams",
+    "text": "Today’s topic - Branching Strategy for Mainframe Teams"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#dont-just-take-our-word-for-it",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#dont-just-take-our-word-for-it",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "… don’t just take our word for it",
+    "text": "… don’t just take our word for it\n\nMicrosoft Azure Devops Services"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#starting-simple",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#starting-simple",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Starting Simple",
+    "text": "Starting Simple\nEvery change starts in a branch.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n\n\n\n\n\n\n\nDevelopers work in the branch to make changes, perform user builds and unit tests.\nA branch holds multiple commits (changes to multiple files)."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#starting-simple-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#starting-simple-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Starting Simple",
+    "text": "Starting Simple\nEvery change starts in a branch.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n  commit\n\n\n\n\n\n\nThese changes on these branches are\n\nbuilt,\ntested,\nreviewed and\napproved before merging to main."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#preparing-to-merge-into-main",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#preparing-to-merge-into-main",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Preparing to Merge into main",
+    "text": "Preparing to Merge into main\nFeature Team/Developers will:\n\nBuild\n\nBuilds may be done to any commit on any branch\nFeature branch must build cleanly for a Pull Request\n\nTest\n\nTo prove quality of the changes in their feature branch\n\n\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n---\ngitGraph\n  commit\n  commit\n  branch feature/001\n  commit\n  commit\n  checkout main\n  merge feature/001"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#the-route-to-live",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#the-route-to-live",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "The Route to Live",
+    "text": "The Route to Live\nComparing the recommended branching scheme to some common legacy patterns for workflows and build/deploy schemes\n\nThese environments dominate the terminology and workflows with which the team are familar\nSo there is an adjustment required to be fully comfortable with the recommended model"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#branches-for-environments",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#branches-for-environments",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Branches for environments",
+    "text": "Branches for environments\nTypically\n\nDEV\nTEST\nPROD\n\nLet’s look at the workflow for a set of features in a release."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#hanging-on-to-legacy-workflows",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#hanging-on-to-legacy-workflows",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Hanging on to legacy workflows",
+    "text": "Hanging on to legacy workflows\nThe following diagrams adopt the old names for:\n\nbranches where developers work (‘DEV’),\nbranches representing versions of the code base which are built and deployed to systems where formal tests are executed (‘TEST’) and\nbranches representing the state of the deployed system in production (‘PROD’)\n\nand shows associated build pipelines and systems on to which the built packages are deployed.\n\nThe pipelines targeting each environment may inject some characteristics specific to each environment.\nObviously we maintain the principle that features will be implemented first in DEV and progress through one or more TEST branches and environments before deployment to PROD.\nEqually obviously, feature branches are used by developers before they merge into DEV.\nIn order to be included in the pipeline build for any environment, the commits implementing a feature must be merged into the branch for that environment. Build˚vs are performed for any environment.\nWhen one or more features are code-complete and merged into the DEV branch a new build is performed for deployment to the DEV environment."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#starting-a-development-cycle",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#starting-a-development-cycle",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Starting a development cycle",
+    "text": "Starting a development cycle\n\n\n\n\n\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n\n\n\n\n\n\nBoth features for release 2.1.0 are developed in their own dedicated branches."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#completing-a-feature",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#completing-a-feature",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Completing a feature",
+    "text": "Completing a feature\nFeature-001 completes first and a PR is used to review and approve its merge into the DEV branch.\nA new build of DEV is deployed to a DEV environment.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#and-another-one",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#and-another-one",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "And another one…",
+    "text": "And another one…\nThe same workflow is performed when the second feature planned for the release is ready to be merged into DEV.\n\nIt’s implicit that the feature-002 branch is synchronized with DEV after feature-001 is merged to DEV (at least before feature-002 can be merged with DEV).\n\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#testing-features-together",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#testing-features-together",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Testing features together",
+    "text": "Testing features together\nAs these two features are now merged onto the DEV branch, they can be promoted together onto the TEST branch\n\nBy performing a new combined build and deployment to the TEST environment.\nHere a problem is discovered and a fix to TEST is developed in a branch, merged into TEST, built and deployed for validation."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#testing-and-fixing-problems",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#testing-and-fixing-problems",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Testing and fixing problems",
+    "text": "Testing and fixing problems\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout TEST\n  merge DEV\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout TEST\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#deploying-to-production",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#deploying-to-production",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Deploying to production",
+    "text": "Deploying to production\nAfter a successful test cycle, a PR is used to review and approve the merging of TEST (which now includes both planned new features) into the PROD branch.\nThis is followed by a build and deployment to the PROD environment.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout TEST\n  merge DEV\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout TEST\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  checkout PROD\n  merge TEST\n  commit tag: \"5.build and deploy to PROD env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#fixing-production-problems",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#fixing-production-problems",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Fixing production problems",
+    "text": "Fixing production problems\nA HotFix is needed.\nThis is developed, reviewed and merged into the PROD branch with a new build and deployment to the PROD environment performed.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout TEST\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  checkout PROD\n  merge TEST\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#the-next-development-cycle",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#the-next-development-cycle",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "The next development cycle",
+    "text": "The next development cycle\nNow the testing and release cycle for release 2.1.0 is complete, both the TEST and PROD branches have fixes which need to be synchronized to DEV.\nSince all the commits missing from DEV are present on PROD, we just git pull from PROD to DEV."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#section",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#section",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "",
+    "text": "---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout TEST\n  merge DEV\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout TEST\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  checkout PROD\n  merge TEST\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\"\n  checkout TEST\n  merge PROD\n  checkout DEV\n  merge PROD\n\n\n\n\n\n\nDEV is now identical to PROD.\nJust as at the beginning of release 2.1.0, a tag is used to demarcate the beginning of a new release cycle."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#section-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#section-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "",
+    "text": "---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchName: \"PROD\"\n    mainBranchOrder: 2\n---\ngitGraph\n  commit\n  branch TEST order: 5\n  branch DEV  order: 10\n  commit tag: \"2.1.0\"\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV\n  branch feature-002 order: 15\n  commit\n  checkout DEV\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout TEST\n  merge DEV\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout TEST\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  checkout PROD\n  merge TEST\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\"\n  checkout TEST\n  merge PROD\n  checkout DEV\n  merge PROD\n  commit tag: \"2.2.0\"\n  branch feature-003 order: 20\n  commit\n  checkout DEV\n  merge feature-003\n  commit tag: \"7.build and deploy to DEV env\"\n  checkout TEST\n  merge DEV\n  commit tag: \"8.build and deploy to TEST env\"\n  checkout PROD\n  merge TEST\n  commit tag: \"9.build and deploy to PROD env\"\n\n\n\n\n\n\nThe cycle for Release 2.2.0 goes smoothly with Feature-003 reviewed, approved, merged and tested into DEV, TEST and PROD with no need for any fixes!\n\n(Which means there are no commits made to either TEST or PROD that need to go back to DEV.)"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#names-words-and-interpretation",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#names-words-and-interpretation",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Names, words and interpretation",
+    "text": "Names, words and interpretation\nThe recommended model uses the industry-standard terms for branches in workflows reflecting common views of the roles they play.\n\nDo these conflict with the legacy terms, or are they interpretations of the model achieving equivalent outcomes?\nIs the legacy interpretation fundamentally different or close enough not to be a blocker on adoption?"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#changing-the-vocabulary",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#changing-the-vocabulary",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Changing the vocabulary",
+    "text": "Changing the vocabulary\nThe following diagram shows the same basic workflow actions and elements, but with the names from the recommended model.\n\nDEV is equivalent to a series of Epics\nTEST is equivalent to main\nPROD is equivalent to a series of Releases"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#section-2",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#section-2",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "",
+    "text": "---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  branch PROD-2.1.0\n  %% merge main\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD-2.1.0\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\"\n  checkout main"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#starting-a-development-cycle-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#starting-a-development-cycle-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Starting a development cycle",
+    "text": "Starting a development cycle\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n\n\n\n\n\n\n\nmain is the most up to date branch at the beginning of every cycle. Release 1.9.8 is currently deployed to production via a previous cycle which built, tested and deployed it from a dedicated branch.\nA new DEV-2.1.0 branch is created as an epic branch to be the integration branch for the features which will go into this next release cycle."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#features",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#features",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Features…",
+    "text": "Features…\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n\n\n\n\n\n\nAs usual, features are developed in their own branches."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#integrating-features",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#integrating-features",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Integrating features",
+    "text": "Integrating features\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n\n\n\n\n\n\nAs each feature is completed, PRs are used to review, approve and merge them into the DEV-2.1.0 branch where they can be tested.\nAgain, it’s implicit that the feature-002 branch is synchronized with DEV after feature-001 is merged to DEV (at least before feature-002 can be merged with DEV).\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n\n\n\n\n\n\nWhen both pass the tests for a DEV branch, a PR proposes a merge of them both to main where they can be reviewed and approved to be a release candidate."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#testing-and-fixing-problems-prior-to-production-deployment",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#testing-and-fixing-problems-prior-to-production-deployment",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Testing and fixing problems prior to production deployment",
+    "text": "Testing and fixing problems prior to production deployment\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n\n\n\n\n\n\nAgain, the bug is discovered in testing, and testfix-001 is required. It’s developed in a branch, reviewed and approved and the build and testing refreshed.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  branch PROD-2.1.0\n  %% merge main\n  commit tag: \"5.build and deploy to PROD env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#deploying-to-production-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#deploying-to-production-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Deploying to production",
+    "text": "Deploying to production\nNow main has the new features and is passing the tests, it’s ready to consider a deployment to Production.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  branch PROD-1.9.8\n  checkout main\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  branch PROD-2.1.0\n  %% merge main\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD-2.1.0\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#fixing-production-problems-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#fixing-production-problems-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Fixing production problems",
+    "text": "Fixing production problems\nThe bug which needs fixing with hotfix-001 is again found and resolved using a branch off PROD-2.1.0.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  branch PROD-2.1.0\n  %% merge main\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD-2.1.0\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\"\n  checkout main\n  commit tag: \"2.2.0\"\n  branch DEV-2.2.0 order: 14\n  checkout main\n  merge PROD-2.1.0\n  %% merge PROD\n  checkout DEV-2.2.0\n  commit\n  %% merge PROD\n  branch feature-003 order: 20\n  commit\n  checkout DEV-2.2.0\n  merge feature-003\n  commit tag: \"7.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.2.0\n  commit tag: \"8.build and deploy to TEST env\""
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#the-next-development-cycle-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#the-next-development-cycle-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "The next development cycle",
+    "text": "The next development cycle\nTo continue development for a release 2.2.0, a new DEV-x.y.z branch is created. Development of features on DEV-2.2.0 proceeds in the usual way.\nThe commit(s) for hotfix-001 are merged back to main and thus will be present when any further commits are merged in either main or the DEV-2.2.0 branches.\n\n\n\n\n\n---\nconfig:\n  fontFamily: \"IBM Plex Sans\"\n  gitGraph:\n    showCommitLabel: false\n    mainBranchOrder: 5\n---\ngitGraph\n  commit\n  commit tag: \"2.1.0\"\n  branch DEV-2.1.0  order: 10\n  commit\n  branch feature-001 order: 15\n  commit\n  checkout DEV-2.1.0\n  branch feature-002 order: 15\n  commit\n  checkout DEV-2.1.0\n  merge feature-001\n  commit tag: \"1.build and deploy to DEV env\"\n  checkout feature-002\n  commit\n  checkout DEV-2.1.0\n  merge feature-002\n  commit tag: \"2.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.1.0\n  commit tag: \"3.build and deploy to TEST env\"\n  branch testfix-001 order: 4\n  commit\n  commit\n  checkout main\n  merge testfix-001\n  commit tag: \"4.build and deploy to TEST env\"\n  branch PROD-2.1.0\n  %% merge main\n  commit tag: \"5.build and deploy to PROD env\"\n  branch hotfix-001 order: 1\n  commit\n  checkout PROD-2.1.0\n  merge hotfix-001\n  commit tag: \"6.build and deploy to PROD env\"\n  checkout main\n  commit tag: \"2.2.0\"\n  branch DEV-2.2.0 order: 14\n  checkout main\n  merge PROD-2.1.0\n  %% merge PROD\n  checkout DEV-2.2.0\n  %% merge PROD\n  branch feature-003 order: 20\n  commit\n  checkout DEV-2.2.0\n  merge feature-003\n  commit tag: \"7.build and deploy to DEV env\"\n  checkout main\n  merge DEV-2.2.0\n  commit tag: \"8.build and deploy to TEST env\"\n  branch PROD-2.2.0 order: 1\n  %% merge main\n  commit tag: \"9.build and deploy to PROD env\"\n\n\n\n\n\n\nBuild, testing and production deloyment for Release 2.2.0 then proceeds as normal."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#advantages-of-the-recommended-model",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#advantages-of-the-recommended-model",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Advantages of the recommended model",
+    "text": "Advantages of the recommended model"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#dev-is-a-series-of-epics",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#dev-is-a-series-of-epics",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "DEV is a series of Epics",
+    "text": "DEV is a series of Epics\nThe DEV branch integrates multiple features before they are merged into TEST - which is the same role that epic branches have with respect to main in the recommended model.\nIt signals that the target integration branch for developers is functionally equivalent to a series of Epic branches."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#equivalence",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#equivalence",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Equivalence",
+    "text": "Equivalence\nSince DEV would both be the target of merging new features and have to be refreshed from TEST, it makes no functional difference whether such a branch is:\n\nlong-lived and rebased on the HEAD of TEST if TEST has fixes merged on to it OR\ncreated as an Epic branch from HEAD of TEST at the beginning of each development cycle.\n\nOne or the other of those actions MUST be done in order for the developers’ branch to be up-to-date.\nIt makes NO DIFFERENCE to the history or the validity of the branch developers work off of if there’s a single long-lived branch synchronised to the HEAD of TEST (aka main) or if such a branch is created for each cycle."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#test-is-main",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#test-is-main",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "TEST is main",
+    "text": "TEST is main\nTEST is the integration branch for all new features - essentially identical to the branch we call main in the recommended model.\n\nIn legacy terms, DEV would advance ahead of TEST with feature branches being merged into it exactly as epic branches would be ahead of main in the recommended model.\n\nAs commits from feature branches are merged into DEV, the DEV pipeline builds and deploys testable packages to the DEV environment. Having proven their goodness, a PR is created to merge DEV into TEST.\n\n\n\nIf nothing else has merged into TEST since the last PR from DEV then this is straightforward. But if it’s permitted for developers to merge commits for fixes into TEST without merging them into DEV first, then DEV and TEST will have diverged and DEV will need to be brought up-to-date with the commits from TEST which are missing.\nCommits normally merge according to the upward arrows in both diagrams, but there are a number of downward pointing arrows - these signify synchronization points where a branch which is normally a source of commits to another (DEV to TEST, TEST to PROD) need to incorporate commits which were made independently to the (normally) target branch.\nThis is exactly as main and epic branches are used. Thus TEST is playing the role we assign to main in the recommended model. It seems entirely reasonable that the branch to which developers aim to merge their work and which is the main stage of testing has the conventional common name of main.\n\n\nThe TEST branch IS a long-lived (actually permanent) branch in both interpretations of the model.\n\nThe TEST branch will have tested commits for new features ready to be merged to the PROD branch and hence built for deployment to the PROD systems."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#prod-is-a-series-of-releases",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#prod-is-a-series-of-releases",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "PROD is a series of Releases",
+    "text": "PROD is a series of Releases\nThe legacy interpretation demands that commits for new features are merged from TEST to PROD, but also that it is allowed for hot-fixes to be merged with PROD in emergencies.\n\nTEST cannot be behind PROD (ie missing any hot-fixes) when a new set of commits are to be released to PROD.\nTaking the commits from TEST which are newer than the last to PROD makes their histories identical.\nThis makes it functionally the same as making a new branch off the HEAD of TEST (or any given point in the history of TEST) - this is identical to the creation of a release maintenance branch in the recommended model."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#what-else-is-different",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#what-else-is-different",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "What else is different?",
+    "text": "What else is different?\nHaving established a functional and general procedural equivalence with a scheme assuming DEV, TEST and PROD are just more familar names, what else can stop the recommended model being adopted?\nAny build from any commit on any branch might also use some environment-specific options injected by the pipeline - what might these options be?\n\nCompiler options - like compiling for debug vs performance\nwhere to get source and/or linkable binaries from which don’t belong to the repo\nanything else?\n\nThese variations depend on the actions of the pipeline and not just the contents of the source files in the repo."
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#summary-1",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#summary-1",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Summary",
+    "text": "Summary\n\nLegacy terminology is a blocker for alignment to common ways of working\n\nand makes on-boarding harder\n\nOur recommended model decouples the state of the code from the environments\n\nfor which the code is built\nand where it is deployed\n\n\nWords…\n\nDEV is equivalent to a series of Epics\n\noriented to projects/features\n\nTEST is equivalent to main\n\nso let’s use the stardard term\n\nPROD is equivalent to a series of Releases\n\nall with the history and traceabilty we all need"
   },
   {
     "objectID": "ukge-2025-branching-and-building.html#agenda",
