@@ -4787,8 +4787,8 @@ gitGraph
 </div>
 <p>When both pass the tests for a DEV branch, a PR proposes a merge of them both to <code>main</code> where they can be reviewed and approved to be a release candidate.</p>
 </section>
-<section id="testing-and-fixing-problems-prior-to-production-deployment" class="slide level2">
-<h2>Testing and fixing problems prior to production deployment</h2>
+<section id="testing-and-fixing-problems-1" class="slide level2 smaller">
+<h2>Testing and fixing problems …</h2>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -5010,6 +5010,9 @@ gitGraph
 <h2>The next development cycle</h2>
 <p>To continue development for a <em>release 2.2.0</em>, a new <em>DEV-x.y.z</em> branch is created. Development of features on <em>DEV-2.2.0</em> proceeds in the usual way.</p>
 <p>The commit(s) for <em>hotfix-001</em> are merged back to <code>main</code> and thus will be present when any further commits are merged in either <code>main</code> or the <em>DEV-2.2.0</em> branches.</p>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -5083,12 +5086,14 @@ gitGraph
 </div>
 </div>
 <p>Build, testing and production deloyment for Release 2.2.0 then proceeds as normal.</p>
+</section></section>
+<section>
+<section id="advantages-of-the-recommended-model" class="title-slide slide level1 center">
+<h1>Advantages of the recommended model</h1>
+
 </section>
-<section id="advantages-of-the-recommended-model" class="slide level2">
-<h2>Advantages of the recommended model</h2>
-</section>
-<section id="dev-is-a-series-of-epics" class="slide level2 smaller">
-<h2><em>DEV</em> is a series of Epics</h2>
+<section id="main-is-the-integration-point" class="slide level2 smaller">
+<h2><code>main</code> is the integration point</h2>
 <p>The <em>DEV</em> branch integrates multiple features before they are merged into <em>TEST</em> - which is the same role that epic branches have with respect to <code>main</code> in the recommended model.</p>
 <p>It signals that the target integration branch for developers is functionally equivalent to a series of <em>Epic</em> branches.</p>
 </section>
@@ -5102,8 +5107,8 @@ gitGraph
 <p>One or the other of those actions <strong>MUST</strong> be done in order for the developers’ branch to be up-to-date.</p>
 <p>It makes NO DIFFERENCE to the history or the validity of the branch developers work off of if there’s a single long-lived branch synchronised to the HEAD of <em>TEST</em> (aka <code>main</code>) or if such a branch is created for each cycle.</p>
 </section>
-<section id="test-is-main" class="slide level2 smaller">
-<h2><em>TEST</em> is <code>main</code></h2>
+<section id="main-is-test" class="slide level2 smaller">
+<h2><code>main</code> is <em>TEST</em></h2>
 <p><em>TEST</em> is the integration branch for all new features - essentially identical to the branch we call <code>main</code> in the recommended model.</p>
 <ul>
 <li>In legacy terms, <em>DEV</em> would advance ahead of <em>TEST</em> with feature branches being merged into it exactly as epic branches would be ahead of <code>main</code> in the recommended model.
@@ -5133,25 +5138,14 @@ display:block!important;
 </ul></li>
 </ul>
 </section>
-<section id="prod-is-a-series-of-releases" class="slide level2 smaller">
-<h2><em>PROD</em> is a series of Releases</h2>
+<section id="release-branches-are-identical-to-prod" class="slide level2 smaller">
+<h2>Release branches are identical to <em>PROD</em></h2>
 <p>The legacy interpretation demands that commits for new features are merged from <em>TEST</em> to <em>PROD</em>, but also that it is allowed for <em>hot-fixes</em> to be merged with <em>PROD</em> in emergencies.</p>
 <ul>
 <li><p><em>TEST</em> cannot be behind <em>PROD</em> (ie missing any hot-fixes) when a new set of commits are to be released to <em>PROD</em>.</p></li>
 <li><p>Taking the commits from <em>TEST</em> which are newer than the last to <em>PROD</em> makes their histories identical.</p></li>
 <li><p>This makes it functionally the same as making a new branch off the HEAD of <em>TEST</em> (or any given point in the history of <em>TEST</em>) - this is identical to the creation of a release maintenance branch in the recommended model.</p></li>
 </ul>
-</section>
-<section id="what-else-is-different" class="slide level2">
-<h2>What else is different?</h2>
-<p>Having established a functional and general procedural equivalence with a scheme assuming <em>DEV, TEST and PROD</em> are just more familar names, what else can stop the recommended model being adopted?</p>
-<p>Any build from any commit on any branch might also use some <span style="color:green;">environment</span>-specific options injected by the pipeline - what might these options be?</p>
-<ul>
-<li>Compiler options - like compiling for debug vs performance</li>
-<li>where to get source and/or linkable binaries from which don’t belong to the repo</li>
-<li>anything else?</li>
-</ul>
-<p>These variations depend on the actions of the pipeline and not just the contents of the source files in the repo.</p>
 </section></section>
 <section>
 <section id="summary" class="title-slide slide level1 center">
@@ -5183,7 +5177,7 @@ display:block!important;
 </ul></li>
 <li><em>PROD</em> is equivalent to a series of Releases
 <ul>
-<li>all with the history and traceabilty we all need</li>
+<li>all with the history and traceability we all need</li>
 </ul></li>
 </ul>
 </section></section>
