@@ -13,7 +13,7 @@ format:
     slide-number: true
     show-slide-number: all
     title-slide-attributes:
-        data-background-image: gsuk-dark.png
+        data-background-image: static/img/2025-Nov/coverpage.jpg
   # pptx:
   #   title: ""
   pdf: default
@@ -1062,3 +1062,20 @@ Words...
     - all with the history and traceability we all need
 
 # THANK YOU!
+
+## Session Feedback
+
+- Submit your feedback using the Whoova app or at the conference website - [https://conferences.gse.org.uk/2025/feedback/dh](https://conferences.gse.org.uk/2025/feedback/dh)
+    - (*Make sure you are signed into Whoova app or MyGSE if using the website*)
+
+- The session code is **DH**
+
+![](static/img/2025-Nov/DH.png)
+
+## IBM Z Day
+
+![](static/img/2025-Nov/ibmzday.png)
+
+## Mainframe Playlist
+
+![](static/img/2025-Nov/mainframesoundtrack.png)
