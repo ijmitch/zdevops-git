@@ -483,6 +483,27 @@
     "text": "Summary\n\nLegacy terminology is a blocker for alignment to common ways of working\n\nand makes on-boarding harder\n\nOur recommended model decouples the state of the code from the environments\n\nfor which the code is built\nand where it is deployed\n\n\nWords…\n\nDEV is equivalent to a series of Epics\n\noriented to projects/features\n\nTEST is equivalent to main\n\nso let’s use the stardard term\n\nPROD is equivalent to a series of Releases\n\nall with the history and traceability we all need"
   },
   {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#session-feedback",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#session-feedback",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Session Feedback",
+    "text": "Session Feedback\n\nSubmit your feedback using the Whoova app or at the conference website - https://conferences.gse.org.uk/2025/feedback/dh\n\n(Make sure you are signed into Whoova app or MyGSE if using the website)\n\nThe session code is DH"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#ibm-z-day",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#ibm-z-day",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "IBM Z Day",
+    "text": "IBM Z Day"
+  },
+  {
+    "objectID": "ukge-2025-navigating-route-to-live-presentation.html#mainframe-playlist",
+    "href": "ukge-2025-navigating-route-to-live-presentation.html#mainframe-playlist",
+    "title": "Z Devops: Navigating your route to live with Git",
+    "section": "Mainframe Playlist",
+    "text": "Mainframe Playlist"
+  },
+  {
     "objectID": "ukge-2025-branching-and-building.html#agenda",
     "href": "ukge-2025-branching-and-building.html#agenda",
     "title": "Git Branching: Moving to recommended model",
