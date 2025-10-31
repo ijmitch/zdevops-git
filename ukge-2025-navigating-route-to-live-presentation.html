@@ -4066,7 +4066,7 @@ gitGraph
 <h2>The Route to Live</h2>
 <p>Comparing the recommended branching scheme to some common legacy patterns for workflows and build/deploy schemes</p>
 <ul>
-<li>These <span style="color:green;">environments</span> dominate the terminology and workflows with which the team are familar</li>
+<li>These <span style="color:green;">environments</span> dominate the terminology and workflows with which the teams are familiar</li>
 <li>So there is an adjustment required to be fully comfortable with the recommended model</li>
 </ul>
 </section>
@@ -4136,7 +4136,7 @@ display:block!important;
 <section id="completing-a-feature" class="slide level2">
 <h2>Completing a feature</h2>
 <p><em>Feature-001</em> completes first and a PR is used to review and approve its merge into the <em>DEV</em> branch.</p>
-<p>A new build of <em>DEV</em> is deployed to a <em>DEV</em> <strong><span style="color:green;">environment</span></strong>.</p>
+<p><em>DEV</em> is built, and the build is deployed to a <em>DEV</em> <strong><span style="color:green;">environment</span></strong>.</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -4233,6 +4233,19 @@ gitGraph
 <li>By performing a new combined build and deployment to the <em>TEST</em> <strong><span style="color:green;">environment</span></strong>.</li>
 <li>Here a problem is discovered and a fix to <em>TEST</em> is developed in a branch, merged into <em>TEST</em>, built and deployed for validation.</li>
 </ul>
+<aside class="notes">
+<p>How can I test feature001 in the <em>TEST</em> environment without waiting on feature002 ? Or a different scenario: feature001 and feature002 are both in <em>DEV</em>, and the developer of feature001 wants to enter <em>TEST</em> already - how would I do this?</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
 </section>
 <section id="testing-and-fixing-problems" class="slide level2 smaller">
 <h2>Testing and fixing problems</h2>
@@ -4387,7 +4400,20 @@ gitGraph
 <section id="the-next-development-cycle" class="slide level2">
 <h2>The next development cycle</h2>
 <p>Now the testing and release cycle for <em>release 2.1.0</em> is complete, both the <em>TEST</em> and <em>PROD</em> branches have fixes which need to be synchronized to <em>DEV</em>.</p>
-<p>Since all the commits missing from <em>DEV</em> are present on <em>PROD</em>, we just <code>git pull</code> from <em>PROD</em> to <em>DEV</em>.</p>
+<p>Since all the commits missing from <em>DEV</em> are present on <em>PROD</em>, we just <code>git merge</code> from <em>PROD</em> into <em>DEV</em>. And also from <em>PROD</em> into <em>TEST</em>.</p>
+<aside class="notes">
+<p>And this is where you begin to ENTER the MERGE HELL</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
 </section>
 <section id="section" class="slide level2">
 <h2></h2>
@@ -4451,7 +4477,7 @@ gitGraph
 </div>
 </div>
 <p><em>DEV</em> is now identical to <em>PROD</em>.</p>
-<p>Just as at the beginning of <em>release 2.1.0</em>, a tag is used to demarcate the beginning of a new release cycle.</p>
+<p>Just as at the beginning of <em>release 2.1.0</em>, a new tag is used to demarcate the beginning of a new release cycle.</p>
 </section>
 <section id="section-1" class="slide level2">
 <h2></h2>
@@ -4550,17 +4576,17 @@ display:block!important;
 <h2>Names, words and interpretation</h2>
 <p>The recommended model uses the industry-standard terms for branches in workflows reflecting common views of the roles they play.</p>
 <ul>
-<li>Do these conflict with the legacy terms, or are they interpretations of the model achieving equivalent outcomes?</li>
+<li>Do these conflict with the legacy terms, or are they interpretations of the model achieving equivalent outcomes more easily?</li>
 <li>Is the legacy interpretation fundamentally different or close enough not to be a blocker on adoption?</li>
 </ul>
 </section>
 <section id="changing-the-vocabulary" class="slide level2">
 <h2>Changing the vocabulary</h2>
-<p>The following diagram shows the same basic workflow actions and elements, but with the names from the recommended model.</p>
+<p>The following diagrams show the same basic workflow actions and elements, but with the names from the recommended model.</p>
 <ul>
-<li><em>DEV</em> is equivalent to a series of Epics</li>
-<li><em>TEST</em> is equivalent to <code>main</code></li>
-<li><em>PROD</em> is equivalent to a series of Releases</li>
+<li>A series of commits on <code>main</code> is equivalent to <em>DEV</em></li>
+<li>A release build deployed into a test environment is equivalent to <em>TEST</em></li>
+<li>Production versions (<em>PROD</em>) are demarcated by a Git tag on <code>main</code> - representing a series of releases builds that made it to production.</li>
 </ul>
 </section>
 <section id="section-2" class="slide level2">
@@ -4641,12 +4667,10 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: &quot;1.9.8&quot;
+  branch release/1.9.8
+  commit 
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -4654,8 +4678,9 @@ gitGraph
 </div>
 </div>
 <aside class="notes">
-<p><code>main</code> is the most up to date branch at the beginning of every cycle. Release 1.9.8 is currently deployed to production via a previous cycle which built, tested and deployed it from a dedicated branch.</p>
-<p>A new <code>DEV-2.1.0</code> branch is created as an epic branch to be the integration branch for the features which will go into this next release cycle.</p>
+<p><code>main</code> is the most up to date branch at the beginning of every cycle. Release 1.9.8 is currently deployed to production via a previous cycle which built, tested and deployed it from the main branch.</p>
+<p>A new <code>release/1.9.8</code> branch is created as an release maintenance branch to be the integration branch for production fixes.</p>
+<p>New features which will go into this next release cycle are added to main.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -4668,8 +4693,8 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
-<section id="features" class="slide level2">
-<h2>Features…</h2>
+<section id="features-for-the-next-release" class="slide level2">
+<h2>Features for the next release …</h2>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -4683,15 +4708,14 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: &quot;1.9.8&quot;
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
 </pre>
@@ -4717,23 +4741,22 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: &quot;1.9.8&quot;
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: &quot;1.build and deploy to DEV env&quot;
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: &quot;2.build and deploy to DEV env&quot;
 </pre>
@@ -4742,8 +4765,8 @@ gitGraph
 </div>
 </div>
 </div>
-<p>As each feature is completed, PRs are used to review, approve and merge them into the <code>DEV-2.1.0</code> branch where they can be tested.</p>
-<p>Again, it’s implicit that the feature-002 branch is synchronized with <em>DEV</em> after feature-001 is merged to <em>DEV</em> (at least before feature-002 can be merged with <em>DEV</em>).</p>
+<p>As each feature is completed, PRs are used to review, approve and merge them into the <code>main</code> branch where they can be tested together.</p>
+<p>Again, it’s implicit that the feature-002 branch is synchronized with <em>main</em> after feature-001 is merged to <em>main</em> (at least before feature-002 can be merged with <em>main</em>).</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -4802,34 +4825,30 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: &quot;1.9.8&quot;
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: &quot;1.build and deploy to DEV env&quot;
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: &quot;2.build and deploy to DEV env&quot;
-  checkout main
-  merge DEV-2.1.0
-  commit tag: &quot;3.build and deploy to TEST env&quot;
-  branch testfix-001 order: 4
+  branch testfix-001 order: 15
   commit
   commit
   checkout main
   merge testfix-001
-  commit tag: &quot;4.build and deploy to TEST env&quot;
+  commit tag: &quot;3.build and deploy to DEV and TEST env&quot;
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -4837,6 +4856,10 @@ gitGraph
 </div>
 </div>
 <p>Again, the bug is discovered in testing, and <code>testfix-001</code> is required. It’s developed in a branch, reviewed and approved and the build and testing refreshed.</p>
+</section>
+<section id="deploying-to-production-1" class="slide level2">
+<h2>Deploying to production</h2>
+<p>Now <code>main</code> has the new features and is passing the development tests, it’s ready to consider a deployment to QA and then Production.</p>
 <div class="cell" data-reveal="true" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -4850,81 +4873,32 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: &quot;1.9.8&quot;
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: &quot;1.build and deploy to DEV env&quot;
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: &quot;2.build and deploy to DEV env&quot;
-  checkout main
-  merge DEV-2.1.0
-  commit tag: &quot;3.build and deploy to TEST env&quot;
-  branch testfix-001 order: 4
+  branch testfix-001 order: 15
   commit
   commit
   checkout main
   merge testfix-001
-  commit tag: &quot;4.build and deploy to TEST env&quot;
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: &quot;5.build and deploy to PROD env&quot;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="deploying-to-production-1" class="slide level2">
-<h2>Deploying to production</h2>
-<p>Now <code>main</code> has the new features and is passing the tests, it’s ready to consider a deployment to Production.</p>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class><p></p>
-<div>
-<pre class="mermaid mermaid-js">---
-config:
-  fontFamily: &quot;IBM Plex Sans&quot;
-  gitGraph:
-    showCommitLabel: false
-    mainBranchOrder: 5
----
-gitGraph
-  branch PROD-1.9.8
-  checkout main
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
-  commit tag: &quot;3.build and deploy to TEST env&quot;
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: &quot;4.build and deploy to TEST env&quot;
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: &quot;5.build and deploy to PROD env&quot;
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: &quot;6.build and deploy to PROD env&quot;
+  commit tag: &quot;3.build and deploy to DEV and TEST env&quot;
+  commit tag: &quot;4.build release candidate to deploy to DEV/TEST/QA/PROD&quot;
+  commit tag: &quot;2.0.0&quot;
 </pre>
 </div>
 <p></p></figure><p></p>
@@ -4934,82 +4908,8 @@ gitGraph
 </section>
 <section id="fixing-production-problems-1" class="slide level2">
 <h2>Fixing production problems</h2>
-<p>The bug which needs fixing with <code>hotfix-001</code> is again found and resolved using a branch off <code>PROD-2.1.0</code>.</p>
-<div class="cell" data-reveal="true" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class><p></p>
-<div>
-<pre class="mermaid mermaid-js">---
-config:
-  fontFamily: &quot;IBM Plex Sans&quot;
-  gitGraph:
-    showCommitLabel: false
-    mainBranchOrder: 5
----
-gitGraph
-  commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
-  branch feature-001 order: 15
-  commit
-  checkout DEV-2.1.0
-  branch feature-002 order: 15
-  commit
-  checkout DEV-2.1.0
-  merge feature-001
-  commit tag: &quot;1.build and deploy to DEV env&quot;
-  checkout feature-002
-  commit
-  checkout DEV-2.1.0
-  merge feature-002
-  commit tag: &quot;2.build and deploy to DEV env&quot;
-  checkout main
-  merge DEV-2.1.0
-  commit tag: &quot;3.build and deploy to TEST env&quot;
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: &quot;4.build and deploy to TEST env&quot;
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: &quot;5.build and deploy to PROD env&quot;
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: &quot;6.build and deploy to PROD env&quot;
-  checkout main
-  commit tag: &quot;2.2.0&quot;
-  branch DEV-2.2.0 order: 14
-  checkout main
-  merge PROD-2.1.0
-  %% merge PROD
-  checkout DEV-2.2.0
-  commit
-  %% merge PROD
-  branch feature-003 order: 20
-  commit
-  checkout DEV-2.2.0
-  merge feature-003
-  commit tag: &quot;7.build and deploy to DEV env&quot;
-  checkout main
-  merge DEV-2.2.0
-  commit tag: &quot;8.build and deploy to TEST env&quot;
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
-</section>
-<section id="the-next-development-cycle-1" class="slide level2">
-<h2>The next development cycle</h2>
-<p>To continue development for a <em>release 2.2.0</em>, a new <em>DEV-x.y.z</em> branch is created. Development of features on <em>DEV-2.2.0</em> proceeds in the usual way.</p>
-<p>The commit(s) for <em>hotfix-001</em> are merged back to <code>main</code> and thus will be present when any further commits are merged in either <code>main</code> or the <em>DEV-2.2.0</em> branches.</p>
+<p><code>main</code> has evolved, and a production issue is reported. What now?</p>
+<p>The bug which needs fixing is fixed with <code>fix-001</code> as a feature branch from the release maintenance branch <code>release/1.9.8</code>.</p>
 </section>
 <section id="section-3" class="slide level2">
 <h2></h2>
@@ -5023,69 +4923,77 @@ config:
   fontFamily: &quot;IBM Plex Sans&quot;
   gitGraph:
     showCommitLabel: false
-    mainBranchOrder: 5
+    mainBranchOrder: 10
+    rotateCommitLabel: true
 ---
 gitGraph
+  checkout main
+  commit tag: &quot;1.9.8&quot;
+  branch release/1.9.8 order: 5
   commit
-  commit tag: &quot;2.1.0&quot;
-  branch DEV-2.1.0  order: 10
-  commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
-  merge feature-001
-  commit tag: &quot;1.build and deploy to DEV env&quot;
+  checkout main
+  %% merge feature-001
+  %% commit tag: &quot;1.build and deploy to DEV env&quot;
+  merge feature-001 tag: &quot;1.build and deploy to DEV env&quot;
+  checkout release/1.9.8
+  branch fix/1.9.8/fix-001 order: 3
+  checkout fix/1.9.8/fix-001
+  commit 
+  checkout release/1.9.8
+  merge fix/1.9.8/fix-001 tag: &quot;2.build and deploy to TEST/QA/PROD env&quot; type: HIGHLIGHT
+  checkout main
+  merge release/1.9.8
   checkout feature-002
   commit
-  checkout DEV-2.1.0
-  merge feature-002
-  commit tag: &quot;2.build and deploy to DEV env&quot;
   checkout main
-  merge DEV-2.1.0
-  commit tag: &quot;3.build and deploy to TEST env&quot;
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: &quot;4.build and deploy to TEST env&quot;
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: &quot;5.build and deploy to PROD env&quot;
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: &quot;6.build and deploy to PROD env&quot;
-  checkout main
-  commit tag: &quot;2.2.0&quot;
-  branch DEV-2.2.0 order: 14
-  checkout main
-  merge PROD-2.1.0
-  %% merge PROD
-  checkout DEV-2.2.0
-  %% merge PROD
-  branch feature-003 order: 20
-  commit
-  checkout DEV-2.2.0
-  merge feature-003
-  commit tag: &quot;7.build and deploy to DEV env&quot;
-  checkout main
-  merge DEV-2.2.0
-  commit tag: &quot;8.build and deploy to TEST env&quot;
-  branch PROD-2.2.0 order: 1
-  %% merge main
-  commit tag: &quot;9.build and deploy to PROD env&quot;
+  merge feature-002 tag: &quot;3.build and deploy to DEV env&quot;
+  commit 
 </pre>
 </div>
 <p></p></figure><p></p>
 </div>
 </div>
 </div>
-<p>Build, testing and production deloyment for Release 2.2.0 then proceeds as normal.</p>
+</section>
+<section id="the-next-development-cycle-1" class="slide level2">
+<h2>The next development cycle</h2>
+<p>To continue development for a <em>release 2.1.0</em>. Development of features on <em>DEV-2.2.0</em> proceeds in the usual way.</p>
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class><p></p>
+<div>
+<pre class="mermaid mermaid-js">---
+config:
+  fontFamily: &quot;IBM Plex Sans&quot;
+  gitGraph:
+    showCommitLabel: false
+    mainBranchOrder: 5
+---
+gitGraph
+  checkout main
+  commit tag: &quot;2.0.0&quot;
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
+  branch feature-001 order: 15
+  commit
+  checkout main
+  branch feature-002 order: 15
+  commit
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>Build, testing and production deployment for next planned release 2.1.0 then proceeds as normal.</p>
 </section></section>
 <section>
 <section id="advantages-of-the-recommended-model" class="title-slide slide level1 center">
@@ -5094,32 +5002,32 @@ gitGraph
 </section>
 <section id="main-is-the-integration-point" class="slide level2 smaller">
 <h2><code>main</code> is the integration point</h2>
-<p>The <em>DEV</em> branch integrates multiple features before they are merged into <em>TEST</em> - which is the same role that epic branches have with respect to <code>main</code> in the recommended model.</p>
-<p>It signals that the target integration branch for developers is functionally equivalent to a series of <em>Epic</em> branches.</p>
+<p>The <em>DEV</em> branch integrates multiple features before they are merged into <em>TEST</em> - which is the same role that the <code>main</code> branch has in the recommended model.</p>
+<p>It signals that the target integration branch for developers is functionally equivalent to a series of merged <em>feature</em> branches.</p>
 </section>
 <section id="equivalence" class="slide level2 smaller">
 <h2>Equivalence</h2>
-<p>Since <em>DEV</em> would both be the target of merging new features and have to be refreshed from <em>TEST</em>, it makes <strong><span style="color:yellow;">no functional difference</span></strong> whether such a branch is:</p>
+<p>Since <em>DEV</em> in the legacy and <code>main</code> in the recommended model would both be the target of merging new changes, it makes <strong><span style="color:yellow;">no functional difference</span></strong> whether:</p>
 <ul>
-<li><strong>long-lived</strong> and rebased on the <code>HEAD</code> of <em>TEST</em> if <em>TEST</em> has fixes merged on to it OR</li>
-<li>created as an <strong>Epic branch</strong> from <code>HEAD</code> of <em>TEST</em> at the beginning of each development cycle.</li>
+<li>a set of <strong>long-lived</strong> branches are maintained and continuously need to be refreshed, a.k.a rebase <em>DEV</em> with the <code>HEAD</code> of <em>TEST</em> if <em>TEST</em> has fixes merged on to it OR</li>
+<li>a series of merged feature branches representing the changes for the next release.</li>
 </ul>
-<p>One or the other of those actions <strong>MUST</strong> be done in order for the developers’ branch to be up-to-date.</p>
-<p>It makes NO DIFFERENCE to the history or the validity of the branch developers work off of if there’s a single long-lived branch synchronised to the HEAD of <em>TEST</em> (aka <code>main</code>) or if such a branch is created for each cycle.</p>
+<p>It makes NO DIFFERENCE to the history or the validity of the <code>main</code> branch or the feature branches developers work off if there’s a single long-lived branch synchronized to the HEAD of <em>TEST</em> or if a new feature branch is created for fixing code for the next planned release from <code>main</code>.</p>
 </section>
 <section id="main-is-test" class="slide level2 smaller">
 <h2><code>main</code> is <em>TEST</em></h2>
-<p><em>TEST</em> is the integration branch for all new features - essentially identical to the branch we call <code>main</code> in the recommended model.</p>
+<p><em>TEST</em> is the integration branch for all new features - essentially identical to the branch we call <code>main</code> in the recommended model, containing the series of new changes that are planned for the upcoming release.</p>
 <ul>
-<li>In legacy terms, <em>DEV</em> would advance ahead of <em>TEST</em> with feature branches being merged into it exactly as epic branches would be ahead of <code>main</code> in the recommended model.
+<li>In legacy terms, <em>DEV</em> would advance ahead of <em>TEST</em> with feature branches being merged into it exactly as feature branches would be ahead of <code>main</code> in the recommended model.
 <ul>
-<li>As commits from feature branches are merged into <em>DEV</em>, the <em>DEV</em> pipeline builds and deploys testable packages to the <em>DEV</em> <span style="color:green;">environment</span>. Having proven their goodness, a PR is created to merge <em>DEV</em> into <em>TEST</em>.</li>
+<li><p>As commits from feature branches are merged into <em>DEV</em>, the <em>DEV</em> pipeline builds and deploys testable packages to the <em>DEV</em> <span style="color:green;">environment</span>. Having proven their goodness, a PR is created to merge <em>DEV</em> into <em>TEST</em>.</p>
+<p><strong>These additional are not required in the recommended model.</strong></p></li>
 </ul></li>
 </ul>
 <aside class="notes">
 <p>If nothing else has merged into <em>TEST</em> since the last PR from <em>DEV</em> then this is straightforward. But if it’s permitted for developers to merge commits for fixes into <em>TEST</em> without merging them into <em>DEV</em> first, then <em>DEV</em> and <em>TEST</em> will have diverged and <em>DEV</em> will need to be brought up-to-date with the commits from <em>TEST</em> which are missing.</p>
 <p>Commits normally merge according to the upward arrows in both diagrams, but there are a number of downward pointing arrows - these signify synchronization points where a branch which is normally a source of commits to another (<em>DEV</em> to <em>TEST</em>, <em>TEST</em> to <em>PROD</em>) need to incorporate commits which were made independently to the (normally) target branch.</p>
-<p>This is exactly as <code>main</code> and <em>epic branches</em> are used. Thus <em>TEST</em> is playing the role we assign to <code>main</code> in the recommended model. It seems entirely reasonable that the branch to which developers aim to merge their work and which is the main stage of testing has the conventional common name of <code>main</code>.</p>
+<p>This is exactly as <code>main</code> and <em>feature branches</em> are used. Thus <em>TEST</em> is playing the role we assign to <code>main</code> in the recommended model. It seems entirely reasonable that the branch to which developers aim to merge their work and which is the main stage of testing has the conventional common name of <code>main</code>.</p>
 <style type="text/css">
 span.MJX_Assistive_MathML {
 position:absolute!important;
@@ -5131,21 +5039,15 @@ width: 1px!important;
 overflow: hidden!important;
 display:block!important;
 }</style></aside>
-<ul>
-<li><p>The <em>TEST</em> branch <strong>IS</strong> a long-lived (actually permanent) branch in both interpretations of the model.</p>
-<ul>
-<li>The <em>TEST</em> branch will have tested commits for new features ready to be merged to the <em>PROD</em> branch and hence built for deployment to the <em>PROD</em> systems.</li>
-</ul></li>
-</ul>
 </section>
-<section id="release-branches-are-identical-to-prod" class="slide level2 smaller">
-<h2>Release branches are identical to <em>PROD</em></h2>
+<section id="release-maintenance-branches-are-identical-to-prod" class="slide level2 smaller">
+<h2>Release maintenance branches are identical to <em>PROD</em></h2>
 <p>The legacy interpretation demands that commits for new features are merged from <em>TEST</em> to <em>PROD</em>, but also that it is allowed for <em>hot-fixes</em> to be merged with <em>PROD</em> in emergencies.</p>
 <ul>
 <li><p><em>TEST</em> cannot be behind <em>PROD</em> (ie missing any hot-fixes) when a new set of commits are to be released to <em>PROD</em>.</p></li>
 <li><p>Taking the commits from <em>TEST</em> which are newer than the last to <em>PROD</em> makes their histories identical.</p></li>
-<li><p>This makes it functionally the same as making a new branch off the HEAD of <em>TEST</em> (or any given point in the history of <em>TEST</em>) - this is identical to the creation of a release maintenance branch in the recommended model.</p></li>
 </ul>
+<p>This makes it functionally the same as creating git tags to label commits on <code>main</code> for release builds and create a release maintenance branch when required in the recommended model.</p>
 </section></section>
 <section>
 <section id="summary" class="title-slide slide level1 center">
@@ -5167,15 +5069,15 @@ display:block!important;
 </ul>
 <p>Words…</p>
 <ul>
-<li><em>DEV</em> is equivalent to a series of Epics
+<li><em>DEV</em> is equivalent to a series of changes
 <ul>
 <li>oriented to projects/features</li>
 </ul></li>
 <li><em>TEST</em> is equivalent to <code>main</code>
 <ul>
-<li>so let’s use the stardard term</li>
+<li>so let’s use the standard term</li>
 </ul></li>
-<li><em>PROD</em> is equivalent to a series of Releases
+<li><em>PROD</em> is equivalent to a series of release builds marked by tags deployed to production
 <ul>
 <li>all with the history and traceability we all need</li>
 </ul></li>
