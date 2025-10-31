@@ -136,7 +136,7 @@ gitGraph
 
 Comparing the recommended branching scheme to some common legacy patterns for workflows and build/deploy schemes
 
-- These [environments]{style="color:green;"} dominate the terminology and workflows with which the team are familar
+- These [environments]{style="color:green;"} dominate the terminology and workflows with which the teams are familiar
 - So there is an adjustment required to be fully comfortable with the recommended model
 
 ## Branches for [environments]{style="color:green;"}
@@ -194,7 +194,7 @@ Both features for *release 2.1.0* are developed in their own dedicated branches.
 
 *Feature-001* completes first and a PR is used to review and approve its merge into the *DEV* branch.
 
-A new build of *DEV* is deployed to a *DEV* **[environment]{style="color:green;"}**.
+*DEV* is built, and the build is deployed to a *DEV* **[environment]{style="color:green;"}**.
 
 ```{mermaid}
 ---
@@ -264,6 +264,12 @@ As these two features are now merged onto the *DEV* branch, they can be promoted
 
  - By performing a new combined build and deployment to the *TEST* **[environment]{style="color:green;"}**.
  - Here a problem is discovered and a fix to *TEST* is developed in a branch, merged into *TEST*, built and deployed for validation.
+
+::: notes
+How can I test feature001 in the *TEST* environment without waiting on feature002 ?
+Or a different scenario:
+feature001 and feature002 are both in *DEV*, and the developer of feature001 wants to enter *TEST* already - how would I do this?
+:::
 
 ## Testing and fixing problems {.smaller}
 
@@ -393,7 +399,11 @@ gitGraph
 
 Now the testing and release cycle for *release 2.1.0* is complete, both the *TEST* and *PROD* branches have fixes which need to be synchronized to *DEV*. 
 
-Since all the commits missing from *DEV* are present on *PROD*, we just `git pull` from *PROD* to *DEV*.
+Since all the commits missing from *DEV* are present on *PROD*, we just `git merge` from *PROD* into *DEV*. And also from *PROD* into *TEST*.
+
+::: notes
+And this is where you begin to ENTER the MERGE HELL
+:::
 
 ## 
 ```{mermaid}
@@ -448,7 +458,7 @@ gitGraph
 ```
 *DEV* is now identical to *PROD*.
 
-Just as at the beginning of *release 2.1.0*, a tag is used to demarcate the beginning of a new release cycle.
+Just as at the beginning of *release 2.1.0*, a new tag is used to demarcate the beginning of a new release cycle.
 
 ##
 
@@ -529,17 +539,17 @@ The recommended model uses the industry-standard terms for branches in workflows
 reflecting common views of the roles they play.
 
 - Do these conflict with the legacy terms, or are they interpretations of the model
-achieving equivalent outcomes? 
+achieving equivalent outcomes more easily? 
 - Is the legacy interpretation fundamentally 
 different or close enough not to be a blocker on adoption?
 
 ## Changing the vocabulary
 
-The following diagram shows the same basic workflow actions and elements, but with the names from the recommended model.
+The following diagrams show the same basic workflow actions and elements, but with the names from the recommended model.
 
-- *DEV* is equivalent to a series of Epics
-- *TEST* is equivalent to `main`
-- *PROD* is equivalent to a series of Releases
+- A series of commits on `main` is equivalent to *DEV*
+- A release build deployed into a test environment is equivalent to *TEST*
+- Production versions (*PROD*) are demarcated by a Git tag on `main` - representing a series of releases builds that made it to production.
 
 ## 
 
@@ -602,22 +612,22 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: "1.9.8"
+  branch release/1.9.8
+  commit 
 ```
 
 ::: notes
 `main` is the most up to date branch at the beginning of every cycle.
-Release 1.9.8 is currently deployed to production via a previous cycle which built, tested and deployed it from a dedicated branch.
+Release 1.9.8 is currently deployed to production via a previous cycle which built, tested and deployed it from the main branch.
 
-A new `DEV-2.1.0` branch is created as an epic branch to be the integration branch for the features which will go into this next release cycle.
+A new `release/1.9.8` branch is created as an release maintenance branch to be the integration branch for production fixes.
+
+New features which will go into this next release cycle are added to main.
 :::
 
-## Features...
+## Features for the next release ...
 ```{mermaid}
 ---
 config:
@@ -627,15 +637,14 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: "1.9.8"
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
 ```
@@ -652,29 +661,28 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: "1.9.8"
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: "1.build and deploy to DEV env"
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: "2.build and deploy to DEV env"
 ```
-As each feature is completed, PRs are used to review, approve and merge them into the `DEV-2.1.0` branch where they can be tested.
+As each feature is completed, PRs are used to review, approve and merge them into the `main` branch where they can be tested together.
 
-Again, it's implicit that the feature-002 branch is synchronized with *DEV* after feature-001 is merged to *DEV* (at least before feature-002 can be merged with *DEV*).
+Again, it's implicit that the feature-002 branch is synchronized with *main* after feature-001 is merged to *main* (at least before feature-002 can be merged with *main*).
 
 ```{mermaid}
 ---
@@ -721,37 +729,38 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: "1.9.8"
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: "1.build and deploy to DEV env"
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: "2.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.1.0
-  commit tag: "3.build and deploy to TEST env"
-  branch testfix-001 order: 4
+  branch testfix-001 order: 15
   commit
   commit
   checkout main
   merge testfix-001
-  commit tag: "4.build and deploy to TEST env"
+  commit tag: "3.build and deploy to DEV and TEST env"
 ```
 Again, the bug is discovered in testing, and `testfix-001` is required. It's developed in a branch, reviewed and approved and the build and testing refreshed.
 
+
+## Deploying to production
+
+Now `main` has the new features and is passing the development tests, it's ready to consider a deployment to QA and then Production.
+
 ```{mermaid}
 ---
 config:
@@ -761,143 +770,38 @@ config:
     mainBranchOrder: 5
 ---
 gitGraph
-  branch PROD-1.9.8
   checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  commit tag: "1.9.8"
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-001
   commit tag: "1.build and deploy to DEV env"
   checkout feature-002
   commit
-  checkout DEV-2.1.0
+  checkout main
   merge feature-002
   commit tag: "2.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.1.0
-  commit tag: "3.build and deploy to TEST env"
-  branch testfix-001 order: 4
+  branch testfix-001 order: 15
   commit
   commit
   checkout main
   merge testfix-001
-  commit tag: "4.build and deploy to TEST env"
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: "5.build and deploy to PROD env"
-```
-## Deploying to production
-
-Now `main` has the new features and is passing the tests, it's ready to consider a deployment to Production.
-
-```{mermaid}
----
-config:
-  fontFamily: "IBM Plex Sans"
-  gitGraph:
-    showCommitLabel: false
-    mainBranchOrder: 5
----
-gitGraph
-  branch PROD-1.9.8
-  checkout main
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
-  commit tag: "3.build and deploy to TEST env"
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: "4.build and deploy to TEST env"
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: "5.build and deploy to PROD env"
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: "6.build and deploy to PROD env"
+  commit tag: "3.build and deploy to DEV and TEST env"
+  commit tag: "4.build release candidate to deploy to DEV/TEST/QA/PROD"
+  commit tag: "2.0.0"
 ```
 ## Fixing production problems
 
-The bug which needs fixing with `hotfix-001` is again found and resolved using a branch off `PROD-2.1.0`.
+`main` has evolved, and a production issue is reported. What now?
 
-```{mermaid}
----
-config:
-  fontFamily: "IBM Plex Sans"
-  gitGraph:
-    showCommitLabel: false
-    mainBranchOrder: 5
----
-gitGraph
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
-  branch feature-001 order: 15
-  commit
-  checkout DEV-2.1.0
-  branch feature-002 order: 15
-  commit
-  checkout DEV-2.1.0
-  merge feature-001
-  commit tag: "1.build and deploy to DEV env"
-  checkout feature-002
-  commit
-  checkout DEV-2.1.0
-  merge feature-002
-  commit tag: "2.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.1.0
-  commit tag: "3.build and deploy to TEST env"
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: "4.build and deploy to TEST env"
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: "5.build and deploy to PROD env"
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: "6.build and deploy to PROD env"
-  checkout main
-  commit tag: "2.2.0"
-  branch DEV-2.2.0 order: 14
-  checkout main
-  merge PROD-2.1.0
-  %% merge PROD
-  checkout DEV-2.2.0
-  commit
-  %% merge PROD
-  branch feature-003 order: 20
-  commit
-  checkout DEV-2.2.0
-  merge feature-003
-  commit tag: "7.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.2.0
-  commit tag: "8.build and deploy to TEST env"
-```
-## The next development cycle
-
-To continue development for a *release 2.2.0*, a new *DEV-x.y.z* branch is created. Development of features on *DEV-2.2.0* proceeds in the usual way.
-
-The commit(s) for *hotfix-001* are merged back to `main` and thus will be present when any further commits are merged in either `main` or the *DEV-2.2.0* branches.
+The bug which needs fixing is fixed with `fix-001` as a feature branch from the release maintenance branch `release/1.9.8`.
 
 ## 
 ```{mermaid}
@@ -906,104 +810,99 @@ config:
   fontFamily: "IBM Plex Sans"
   gitGraph:
     showCommitLabel: false
+    mainBranchOrder: 10
+    rotateCommitLabel: true
+---
+gitGraph
+  checkout main
+  commit tag: "1.9.8"
+  branch release/1.9.8 order: 5
+  commit
+  checkout main 
+  branch feature-001 order: 15
+  commit
+  checkout main
+  branch feature-002 order: 15
+  commit
+  checkout main
+  %% merge feature-001
+  %% commit tag: "1.build and deploy to DEV env"
+  merge feature-001 tag: "1.build and deploy to DEV env"
+  checkout release/1.9.8
+  branch fix/1.9.8/fix-001 order: 3
+  checkout fix/1.9.8/fix-001
+  commit 
+  checkout release/1.9.8
+  merge fix/1.9.8/fix-001 tag: "2.build and deploy to TEST/QA/PROD env" type: HIGHLIGHT
+  checkout main
+  merge release/1.9.8
+  checkout feature-002
+  commit
+  checkout main
+  merge feature-002 tag: "3.build and deploy to DEV env"
+  commit 
+```
+## The next development cycle
+
+To continue development for a *release 2.1.0*. Development of features on *DEV-2.2.0* proceeds in the usual way.
+ 
+```{mermaid}
+---
+config:
+  fontFamily: "IBM Plex Sans"
+  gitGraph:
+    showCommitLabel: false
     mainBranchOrder: 5
 ---
 gitGraph
-  commit
-  commit tag: "2.1.0"
-  branch DEV-2.1.0  order: 10
-  commit
+  checkout main
+  commit tag: "2.0.0"
+  %% branch release/1.9.8
+  %% commit
+  checkout main 
   branch feature-001 order: 15
   commit
-  checkout DEV-2.1.0
+  checkout main
   branch feature-002 order: 15
   commit
-  checkout DEV-2.1.0
-  merge feature-001
-  commit tag: "1.build and deploy to DEV env"
-  checkout feature-002
-  commit
-  checkout DEV-2.1.0
-  merge feature-002
-  commit tag: "2.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.1.0
-  commit tag: "3.build and deploy to TEST env"
-  branch testfix-001 order: 4
-  commit
-  commit
-  checkout main
-  merge testfix-001
-  commit tag: "4.build and deploy to TEST env"
-  branch PROD-2.1.0
-  %% merge main
-  commit tag: "5.build and deploy to PROD env"
-  branch hotfix-001 order: 1
-  commit
-  checkout PROD-2.1.0
-  merge hotfix-001
-  commit tag: "6.build and deploy to PROD env"
-  checkout main
-  commit tag: "2.2.0"
-  branch DEV-2.2.0 order: 14
-  checkout main
-  merge PROD-2.1.0
-  %% merge PROD
-  checkout DEV-2.2.0
-  %% merge PROD
-  branch feature-003 order: 20
-  commit
-  checkout DEV-2.2.0
-  merge feature-003
-  commit tag: "7.build and deploy to DEV env"
-  checkout main
-  merge DEV-2.2.0
-  commit tag: "8.build and deploy to TEST env"
-  branch PROD-2.2.0 order: 1
-  %% merge main
-  commit tag: "9.build and deploy to PROD env"
 ```
 
-Build, testing and production deloyment for Release 2.2.0 then proceeds as normal.
+Build, testing and production deployment for next planned release 2.1.0 then proceeds as normal.
 
 # Advantages of the recommended model
 
 ## `main` is the integration point {.smaller}
 
 The *DEV* branch integrates multiple features before they are merged into *TEST*
- - which is the same role that epic branches have with
-respect to `main` in the recommended model.
+ - which is the same role that the `main` branch has in the recommended model.
 
 It signals that the target integration branch for developers
-is functionally equivalent to a series of *Epic* branches.
+is functionally equivalent to a series of merged *feature* branches.
 
 ## Equivalence {.smaller}
 
-Since *DEV* would both be the target of merging new features
-and have to be refreshed from *TEST*, it makes **[no functional
-difference]{style="color:yellow;"}** whether such a branch is:
+Since *DEV* in the legacy and `main` in the recommended model would both be the target of merging new changes, it makes **[no functional difference]{style="color:yellow;"}** whether:
 
-- **long-lived** and rebased on the `HEAD` of *TEST* if *TEST* has fixes
+- a set of **long-lived** branches are maintained and continuously need to be refreshed, a.k.a rebase *DEV* with the `HEAD` of *TEST* if *TEST* has fixes
 merged on to it OR
-- created as an **Epic branch** from `HEAD` of *TEST* at the beginning of each development cycle.
+- a series of merged feature branches representing the changes for the next release.
 
-One or the other of those actions **MUST** be done in order for the developers' branch
-to be up-to-date.
-
-It makes NO DIFFERENCE to the history or the validity of the branch developers
-work off of if there's a single long-lived branch synchronised to the 
-HEAD of *TEST* (aka `main`) or if such a branch is created for each cycle.
+It makes NO DIFFERENCE to the history or the validity of the `main` branch or the feature branches developers
+work off if there's a single long-lived branch synchronized to the 
+HEAD of *TEST* or if a new feature branch is created for fixing code for the next planned release from `main`.
 
 ## `main` is *TEST* {.smaller}
 
 *TEST* is the integration branch for all new features - essentially identical to the
-branch we call `main` in the recommended model.
+branch we call `main` in the recommended model, containing the series of new changes that are planned for the upcoming release.
 
 - In legacy terms, *DEV* would advance ahead of *TEST* with feature branches being merged into it exactly
-as epic branches would be ahead of `main` in the recommended model.
+as feature branches would be ahead of `main` in the recommended model.
     - As commits from feature branches are merged into *DEV*, the *DEV* pipeline builds and deploys
 testable packages to the *DEV* [environment]{style="color:green;"}. Having proven their goodness, a PR is 
 created to merge *DEV* into *TEST*.
+
+      **These additional are not required in the recommended model.**
 
 ::: notes
 If nothing else has merged into *TEST* since the last PR from *DEV* then this is
@@ -1018,18 +917,13 @@ points where a branch which is normally a source of commits to another (*DEV* to
 *TEST* to *PROD*) need to incorporate commits which were made independently to the 
 (normally) target branch.
 
-This is exactly as `main` and *epic branches* are used. Thus *TEST* is playing the
+This is exactly as `main` and *feature branches* are used. Thus *TEST* is playing the
 role we assign to `main` in the recommended model. It seems entirely reasonable that
 the branch to which developers aim to merge their work and which is the main stage
 of testing has the conventional common name of `main`.
 :::
 
-- The *TEST* branch **IS** a long-lived (actually permanent) branch in both interpretations of the model.
-
-    - The *TEST* branch will have tested commits for new features ready to be merged to the *PROD* branch
-and hence built for deployment to the *PROD* systems.
-
-## Release branches are identical to *PROD* {.smaller}
+## Release maintenance branches are identical to *PROD* {.smaller}
 
 The legacy interpretation demands that commits for new features are merged from *TEST* to *PROD*, but also that
 it is allowed for *hot-fixes* to be merged with *PROD* in emergencies.
@@ -1038,8 +932,7 @@ it is allowed for *hot-fixes* to be merged with *PROD* in emergencies.
 
 - Taking the commits from *TEST* which are newer than the last to *PROD* makes their histories identical.
 
-- This makes it functionally the same as making a new branch off the HEAD of *TEST* (or any given
-point in the history of *TEST*) - this is identical to the creation of a release maintenance branch 
+This makes it functionally the same as creating git tags to label commits on `main` for release builds and create a release maintenance branch when required
 in the recommended model.
 
 # Summary
@@ -1054,12 +947,12 @@ in the recommended model.
 
 Words...
 
-- *DEV* is equivalent to a series of Epics
+- *DEV* is equivalent to a series of changes
     - oriented to projects/features
 - *TEST* is equivalent to `main`
-    - so let's use the stardard term
-- *PROD* is equivalent to a series of Releases
-    - all with the history and traceability we all need
+    - so let's use the standard term
+- *PROD* is equivalent to a series of release builds marked by tags deployed to production
+    - all with the history and traceability we all need 
 
 # THANK YOU!
 
