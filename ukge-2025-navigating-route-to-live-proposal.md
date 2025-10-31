@@ -1,0 +1,17 @@
+---
+title: 'Z Devops: Navigating your route to live with Git'
+author:
+  - Ian J Mitchell
+  - Dennis Behm
+---
+
+# Session Description
+
+Submit [here](https://sessionize.com/gs-uk-november-2025/).
+
+In this session Ian and Dennis will recap the recommended branching scheme and CI/CD pipeline support for IBM Z Devops 
+and explore how that scheme compares with legacy approaches to promoting, testing and deploying
+code on a route from developer to production.
+
+The focus is on aligning to recognised industry practices while not losing the essential 
+safeguards maintaining your production system's reputation for stability and security.

@@ -16,7 +16,7 @@ format:
         data-background-image: gsuk-dark.png
   # pptx:
   #   title: ""
-  # pdf: default
+  pdf: default
 ---
 
 ## Agenda

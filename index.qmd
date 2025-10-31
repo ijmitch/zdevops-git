@@ -13,4 +13,5 @@ format:
 
 # Guide Share UK - Git Branching
 - [GSE UK - 2024](ukgse-2024-git-branching.qmd)
-- [GSUK - 2025](ukge-2025-branching-and-building.qmd)
+- [GSUK - 2025(virtual)](ukge-2025-branching-and-building.qmd)
+- [GSUK -2025(inperson)](ukge-2025-navigating-route-to-live-presentation.qmd)
